@@ -132,7 +132,10 @@ class Home extends State<HomeBig> {
                           style: TextStyle(fontSize: 20),
                         ),
                         onPressed: (){
-                          //Tela de ajuda ao esquecer a senha
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) => HelpPage())
+                          );
                         },
                       ),
                     ],

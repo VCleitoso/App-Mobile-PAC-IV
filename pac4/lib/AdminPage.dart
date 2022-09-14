@@ -19,6 +19,30 @@ class AdminPage extends StatelessWidget{
           child: ListView(
             children: [
 
+              //TÍTULO GRANDÃO
+              Container(
+                  alignment: Alignment.center,
+                  padding: const EdgeInsets.all(10),
+                  child: const Text(
+                    "MyMeal",
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontWeight: FontWeight.w500,
+                      fontSize: 30,
+                    ),
+                  )
+              ),
+
+              //SUBTÍTULO
+              Container(
+                alignment: Alignment.center,
+                padding: const EdgeInsets.all(10),
+                child: const Text(
+                  "Admin",
+                  style: TextStyle(fontSize: 20),
+                ),
+              ),
+
               //BOTÃO DE INSERIR GASTO
               Container(
                   alignment: Alignment.center,
