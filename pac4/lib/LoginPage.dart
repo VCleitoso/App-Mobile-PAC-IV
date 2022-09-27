@@ -28,10 +28,10 @@ class LoginInstance extends State<Login> {
       appBar: AppBar(
           centerTitle: false,
           title: const Text("PAC IV"),
-          backgroundColor: Colors.yellow,
+          backgroundColor: Colors.green[800],
           leading: Padding(
-            padding: const EdgeInsets.fromLTRB(0,5,0,5),
-              child: Image.asset('logo_sem_preto.png')),
+            padding: const EdgeInsets.fromLTRB(0,0,0,0),
+              child: Image.asset('logo_branco_sem_preto.png')),
       ),
       body: Center(
         child:
@@ -105,6 +105,9 @@ class LoginInstance extends State<Login> {
                     height: 50,
                     padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
                     child: ElevatedButton(
+                      style: ButtonStyle(
+                        backgroundColor: MaterialStateProperty.all(Colors.green[800])
+                      ),
                       child: const Text('Login'),
                       onPressed: () {
                         if(userController.text == "admin" && passwordController.text == "admin"){
