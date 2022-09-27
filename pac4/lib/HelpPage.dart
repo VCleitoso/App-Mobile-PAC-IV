@@ -9,7 +9,7 @@ class HelpPage extends StatelessWidget{
     return Scaffold(
       appBar: AppBar(
         centerTitle: false,
-        title: Text("PAC IV"),
+        title: const Text("PAC IV"),
         backgroundColor: Colors.grey,
         //actions: [],//Coisas a direita
       ),
@@ -17,8 +17,8 @@ class HelpPage extends StatelessWidget{
         child: Padding(
           padding: const EdgeInsets.all(10),
           child: ListView(
-            children: [
-              const Text("Chama o supervisor lá."),
+            children: const [
+              Text("Chama o supervisor lá."),
 
             ],
           ),

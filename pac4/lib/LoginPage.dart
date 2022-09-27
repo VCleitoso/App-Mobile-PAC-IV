@@ -3,14 +3,14 @@ import 'UserPage.dart';
 import 'HelpPage.dart';
 import 'AdminPage.dart';
 
-class HomeBig extends StatefulWidget{
-  const HomeBig({Key? key}) : super(key: key);
+class Login extends StatefulWidget{
+  const Login({Key? key}) : super(key: key);
 
   @override
-  State<HomeBig> createState() => Home();
+  State<Login> createState() => LoginInstance();
 }
 
-class Home extends State<HomeBig> {
+class LoginInstance extends State<Login> {
 
   final userController = TextEditingController();
   final passwordController = TextEditingController();
@@ -27,14 +27,16 @@ class Home extends State<HomeBig> {
     return Scaffold(
       appBar: AppBar(
           centerTitle: false,
-          title: Text("PAC IV"),
-          backgroundColor: Colors.grey,
-        //actions: [],//Coisas a direita
+          title: const Text("PAC IV"),
+          backgroundColor: Colors.yellow,
+          leading: Padding(
+            padding: const EdgeInsets.fromLTRB(0,5,0,5),
+              child: Image.asset('logo_sem_preto.png')),
       ),
       body: Center(
         child:
             Padding(
-              padding: EdgeInsets.all(10),
+              padding: const EdgeInsets.all(10),
               child: ListView(
                 children: [
 
@@ -109,7 +111,7 @@ class Home extends State<HomeBig> {
                           Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => AdminPage())
+                                  builder: (context) => const AdminPage())
                           );
                         }else {
                           Navigator.push(
@@ -119,17 +121,19 @@ class Home extends State<HomeBig> {
                           );
                         }
 
-                      },
+
+                      }, //onPressed
                     ),
                   ),
 
                   Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       const Text("Não possui conta?"),
                       TextButton(
                         child: const Text(
                             "Contate seu administrador",
-                          style: TextStyle(fontSize: 20),
+                          style: TextStyle(fontSize: 15),
                         ),
                         onPressed: (){
                           Navigator.push(
@@ -139,7 +143,6 @@ class Home extends State<HomeBig> {
                         },
                       ),
                     ],
-                    mainAxisAlignment: MainAxisAlignment.center,
                   )
                 ],
               ),

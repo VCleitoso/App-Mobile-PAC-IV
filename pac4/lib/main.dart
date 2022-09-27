@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'Home.dart';
+import 'LoginPage.dart';
 
 void main() {
 
@@ -9,6 +9,6 @@ void main() {
     theme: ThemeData(
       brightness: Brightness.dark,
     ),
-    home: HomeBig(),
+    home: Login(),
   ));
 }

@@ -2,14 +2,14 @@ import 'package:flutter/material.dart';
 
 class AdminPage extends StatelessWidget{
 
-  AdminPage({Key? key}) : super(key: key);
+  const AdminPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context){
     return Scaffold(
         appBar: AppBar(
         centerTitle: false,
-        title: Text("PAC IV"),
+        title: const Text("PAC IV"),
     backgroundColor: Colors.grey,
     //actions: [],//Coisas a direita
     ),
