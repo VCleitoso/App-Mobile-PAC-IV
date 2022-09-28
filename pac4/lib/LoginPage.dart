@@ -25,15 +25,20 @@ class LoginInstance extends State<Login> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       appBar: AppBar(
           centerTitle: false,
-          title: const Text("PAC IV"),
+          title: const Text("MyMeal"),
           backgroundColor: Colors.green[800],
           leading: Padding(
             padding: const EdgeInsets.fromLTRB(0,0,0,0),
               child: Image.asset('logo_branco_sem_preto.png')),
       ),
-      body: Center(
+      body: Container(
+        decoration: const BoxDecoration(
+          image: DecorationImage(image: AssetImage('logoMyMealpegeto.png'),
+          fit: BoxFit.contain)
+        ),
         child:
             Padding(
               padding: const EdgeInsets.all(10),
@@ -45,7 +50,7 @@ class LoginInstance extends State<Login> {
                     alignment: Alignment.center,
                     padding: const EdgeInsets.all(10),
                     child: const Text(
-                      "MyMeal",
+                      "Login",
                       style: TextStyle(
                         color: Colors.white,
                         fontWeight: FontWeight.w500,
@@ -55,14 +60,14 @@ class LoginInstance extends State<Login> {
                   ),
 
                   //SUBTÍTULO
-                  Container(
+                  /*Container(
                     alignment: Alignment.center,
                     padding: const EdgeInsets.all(10),
                     child: const Text(
                       "Login",
                       style: TextStyle(fontSize: 20),
                     ),
-                  ),
+                  ),*/
 
                   //ENTRADA USUÁRIO
                   Container(
