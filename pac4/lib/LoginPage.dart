@@ -87,6 +87,7 @@ class LoginInstance extends State<Login> {
                   Container(
                     padding: const EdgeInsets.all(10),
                     child: TextField(
+                      obscureText: true,
                       controller: passwordController,
                       decoration: const InputDecoration(
                         border: OutlineInputBorder(),
