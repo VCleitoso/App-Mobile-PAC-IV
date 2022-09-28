@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'UserPage.dart';
 import 'HelpPage.dart';
 import 'AdminPage.dart';
+import 'main.dart';
 
 class Login extends StatefulWidget{
   const Login({Key? key}) : super(key: key);
@@ -25,18 +26,18 @@ class LoginInstance extends State<Login> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: fundoCor,
       appBar: AppBar(
           centerTitle: false,
           title: const Text("MyMeal"),
-          backgroundColor: Colors.green[800],
+          backgroundColor: appbarCor,
           leading: Padding(
             padding: const EdgeInsets.fromLTRB(0,0,0,0),
               child: Image.asset('logo_branco_sem_preto.png')),
       ),
       body: Container(
         decoration: const BoxDecoration(
-          image: DecorationImage(image: AssetImage('logoMyMealpegeto.png'),
+          image: DecorationImage(image: AssetImage('logoMyMeal.png'),
           fit: BoxFit.contain)
         ),
         child:
@@ -111,7 +112,7 @@ class LoginInstance extends State<Login> {
                     padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
                     child: ElevatedButton(
                       style: ButtonStyle(
-                        backgroundColor: MaterialStateProperty.all(Colors.green[800])
+                        backgroundColor: MaterialStateProperty.all(botaoCor)
                       ),
                       child: const Text('Login'),
                       onPressed: () {

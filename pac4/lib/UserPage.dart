@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'main.dart';
 
 class UserPage extends StatelessWidget{
 
@@ -7,13 +8,18 @@ class UserPage extends StatelessWidget{
   @override
   Widget build(BuildContext context){
     return Scaffold(
+      backgroundColor: fundoCor,
       appBar: AppBar(
         centerTitle: false,
-        title: Text("PAC IV"),
-        backgroundColor: Colors.grey,
+        title: Text("MyMeal"),
+        backgroundColor: appbarCor,
         //actions: [],//Coisas a direita
       ),
-      body: Center(
+      body: Container(
+        decoration: const BoxDecoration(
+        image: DecorationImage(image: AssetImage('logoMyMeal.png'),
+        fit: BoxFit.contain),
+        ),
         child: Padding(
           padding: EdgeInsets.all(10),
           child: ListView(
@@ -24,7 +30,7 @@ class UserPage extends StatelessWidget{
                   alignment: Alignment.center,
                   padding: const EdgeInsets.all(10),
                   child: const Text(
-                    "MyMeal",
+                    "USUÁRIO",
                     style: TextStyle(
                       color: Colors.white,
                       fontWeight: FontWeight.w500,

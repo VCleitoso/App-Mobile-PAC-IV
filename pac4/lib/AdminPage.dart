@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:frases_aletorias_app/main.dart';
 
 class AdminPage extends StatelessWidget{
 
@@ -7,13 +8,19 @@ class AdminPage extends StatelessWidget{
   @override
   Widget build(BuildContext context){
     return Scaffold(
+        backgroundColor: fundoCor,
         appBar: AppBar(
         centerTitle: false,
-        title: const Text("PAC IV"),
-    backgroundColor: Colors.grey,
+        title: const Text("MyMeal"),
+    backgroundColor: appbarCor,
     //actions: [],//Coisas a direita
     ),
-      body: Center(
+      body: Container(
+        decoration: const BoxDecoration(
+          image: DecorationImage(image: AssetImage('logoMyMeal.png'),
+          fit: BoxFit.contain),
+
+        ),
         child: Padding(
           padding: const EdgeInsets.all(10),
           child: ListView(
@@ -24,7 +31,7 @@ class AdminPage extends StatelessWidget{
                   alignment: Alignment.center,
                   padding: const EdgeInsets.all(10),
                   child: const Text(
-                    "MyMeal",
+                    "Admin",
                     style: TextStyle(
                       color: Colors.white,
                       fontWeight: FontWeight.w500,
@@ -33,21 +40,14 @@ class AdminPage extends StatelessWidget{
                   )
               ),
 
-              //SUBTÍTULO
-              Container(
-                alignment: Alignment.center,
-                padding: const EdgeInsets.all(10),
-                child: const Text(
-                  "Admin",
-                  style: TextStyle(fontSize: 20),
-                ),
-              ),
-
               //BOTÃO DE INSERIR GASTO
               Container(
-                  alignment: Alignment.center,
+                  height: 50,
                   padding: const EdgeInsets.all(10),
                   child: ElevatedButton(
+                      style: ButtonStyle(
+                        backgroundColor: MaterialStateProperty.all(botaoCor),
+                      ),
                       onPressed: (){
                         //Inserir ajuda ao esquecer a senha
                       },
@@ -57,9 +57,12 @@ class AdminPage extends StatelessWidget{
 
               //BOTÃO DE VISUALIZAR FUNCIONÁRIO
               Container(
-                alignment: Alignment.center,
+                height: 50,
                 padding: const EdgeInsets.all(10),
                 child: ElevatedButton(
+                  style: ButtonStyle(
+                    backgroundColor: MaterialStateProperty.all(botaoCor),
+                  ),
                     onPressed: (){
                       //Inserir tela de visualizar, alterar e deletar funcionário
                     },
@@ -69,9 +72,12 @@ class AdminPage extends StatelessWidget{
 
               //BOTÃO DE CADASTRAR NOVO FUNCIONÁRIO
               Container(
-                alignment: Alignment.center,
+                height: 50,
                 padding: const EdgeInsets.all(10),
                 child: ElevatedButton(
+                    style: ButtonStyle(
+                      backgroundColor: MaterialStateProperty.all(botaoCor),
+                    ),
                     onPressed: (){
                       //Inserir tela de cadastrar funcionário
                     },
@@ -79,6 +85,20 @@ class AdminPage extends StatelessWidget{
                 ),
               ),
 
+              //BOTÃO DE ALTERAR LOGIN DE ADMINISTRADOR
+              Container(
+                height: 50,
+                padding: const EdgeInsets.all(10),
+                child: ElevatedButton(
+                    style: ButtonStyle(
+                      backgroundColor: MaterialStateProperty.all(botaoCor),
+                    ),
+                    onPressed: (){
+                      //Inserir tela de alterar login de admin
+                    },
+                    child: const Text("ALTERAR LOGIN DE ADMINISTRADOR")
+                ),
+              ),
 
 
 
