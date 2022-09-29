@@ -43,9 +43,12 @@ class UserPage extends StatelessWidget{
               Container(
                 alignment: Alignment.topLeft,
                 padding: const EdgeInsets.all(10),
-                child: const Text(
+                child: Text(
+
                   "NOME DO USUÁRIO: Nome do Usuário",
-                  style: TextStyle(fontSize: 20),
+                  style: TextStyle(
+                      fontSize: 20,
+                  ),
                 ),
               ),
 

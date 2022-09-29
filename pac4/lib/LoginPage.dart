@@ -130,7 +130,8 @@ class LoginInstance extends State<Login> {
                                   builder: (context) => UserPage())
                           );
                         }
-
+                        userController.clear();
+                        passwordController.clear();
 
                       }, //onPressed
                     ),
