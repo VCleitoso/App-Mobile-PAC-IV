@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'LoginPage.dart';
 
-final botaoCor = Colors.green[800];
+const botaoCor = Colors.green;
 final fundoCor = Colors.lightGreen[300];
 const textoCor = Colors.white;
-final appbarCor = Colors.green[800];
+const appbarCor = Colors.green;
 
 
 void main() {

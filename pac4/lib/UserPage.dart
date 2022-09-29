@@ -74,17 +74,26 @@ class UserPage extends StatelessWidget{
 
               //HISTÓRICO
               Container(
-                alignment: Alignment.center,
-                padding: const EdgeInsets.all(10),
+                padding: const EdgeInsets.only(top: 10),
                 child: Column(
                   children: [
 
-                    const Text(
-                      "HISTÓRICO",
-                      style: TextStyle(fontSize: 30),
+                    Container(
+
+                      decoration: const BoxDecoration(
+                        color: appbarCor,
+                      ),
+                      child: const Padding(
+                        padding: EdgeInsets.all(5),
+                        child: Text(
+                          "HISTÓRICO",
+                          style: TextStyle(fontSize: 30),
+                        ),
+                      ),
                     ),
 
-                    Row(
+                    Padding(padding: EdgeInsets.only(top: 10),
+                      child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: [
 
@@ -118,6 +127,7 @@ class UserPage extends StatelessWidget{
                           ],
                         ),
                       ],
+                    ),
                     ),
                   ],
                 )

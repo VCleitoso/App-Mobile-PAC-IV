@@ -19,7 +19,6 @@ class AdminPage extends StatelessWidget{
         decoration: const BoxDecoration(
           image: DecorationImage(image: AssetImage('logoMyMeal.png'),
           fit: BoxFit.contain),
-
         ),
         child: Padding(
           padding: const EdgeInsets.all(10),
