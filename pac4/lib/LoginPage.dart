@@ -23,6 +23,8 @@ class LoginInstance extends State<Login> {
     super.dispose();
   }
 
+  var contador = 0;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -33,8 +35,18 @@ class LoginInstance extends State<Login> {
           backgroundColor: appbarCor,
           leading: Padding(
             padding: const EdgeInsets.fromLTRB(0,0,0,0),
+              child: FlatButton(
+
+              onPressed: (){
+                contador ++;
+                if(contador >= 15){
+                  contador = 0;
+
+                };
+                }, 
               child: Image.asset('logo_branco_sem_preto.png')),
-      ),
+            ),
+        ),
       body: Container(
         decoration: const BoxDecoration(
           image: DecorationImage(image: AssetImage('logoMyMeal.png'),

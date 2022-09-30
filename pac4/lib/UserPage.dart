@@ -11,7 +11,7 @@ class UserPage extends StatelessWidget{
       backgroundColor: fundoCor,
       appBar: AppBar(
         centerTitle: false,
-        title: Text("MyMeal"),
+        title: const Text("MyMeal"),
         backgroundColor: appbarCor,
         //actions: [],//Coisas a direita
       ),
