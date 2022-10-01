@@ -1,4 +1,7 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
+import 'package:frases_aletorias_app/surprise.dart';
 import 'UserPage.dart';
 import 'HelpPage.dart';
 import 'AdminPage.dart';
@@ -38,11 +41,7 @@ class LoginInstance extends State<Login> {
               child: FlatButton(
 
               onPressed: (){
-                contador ++;
-                if(contador >= 15){
-                  contador = 0;
-
-                };
+                Surpresa();
                 }, 
               child: Image.asset('logo_branco_sem_preto.png')),
             ),
@@ -173,6 +172,22 @@ class LoginInstance extends State<Login> {
 
       ),
     );
+  }
+
+  void Surpresa(){
+    contador ++;
+    if (contador >= 15){
+      contador = 0;
+      Navigator.push(context, PageRouteBuilder(
+        pageBuilder: (_,__,___) => const Surprise(),
+        transitionDuration: const Duration(milliseconds: 500),
+        transitionsBuilder: (_, a, __, c) => FadeTransition(opacity: a, child: c),
+      ));
+
+      Timer(const Duration( milliseconds: 500), () {
+        Navigator.pop(context);
+      });
+    }
   }
   
 }
