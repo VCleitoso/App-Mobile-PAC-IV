@@ -12,7 +12,7 @@ class Surprise extends StatelessWidget{
       body:
       Container(
         decoration: const BoxDecoration(
-          image: DecorationImage(image: AssetImage("surpresa.jpg"), fit: BoxFit.cover),
+          image: DecorationImage(image: AssetImage("surpresa.jpg"), fit: BoxFit.fill),
         ),
       ),
 
