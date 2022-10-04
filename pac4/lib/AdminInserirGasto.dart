@@ -35,6 +35,21 @@ class AdminInserirGastoInstance extends State<AdminInserirGasto>{
 
             children: [
 
+              //TÍTULO GRANDÃO
+              Container(
+                  alignment: Alignment.center,
+                  padding: const EdgeInsets.all(10),
+                  child: const Text(
+                    "Inserir Gasto",
+                    style: TextStyle(
+                      color: textoCor,
+                      fontWeight: FontWeight.w500,
+                      fontSize: 30,
+                    ),
+                  )
+              ),
+
+
               //Inserir Número do Funcionário
               Container(
                 padding: const EdgeInsets.all(10),
@@ -83,7 +98,9 @@ class AdminInserirGastoInstance extends State<AdminInserirGasto>{
                       backgroundColor: MaterialStateProperty.all(botaoCor)
                   ),
                   child: const Text('Salvar'),
-                  onPressed: () {}, //onPressed
+                  onPressed: () {
+                    adicionarGasto();
+                  }, //onPressed
                 ),
               ),
 
@@ -96,6 +113,16 @@ class AdminInserirGastoInstance extends State<AdminInserirGasto>{
     );
   }
 
+  adicionarGasto(){
 
+    //A fazer: Guardar dados no banco de dados
+
+    //A fazer: Pop Up para informar usuário do sucesso ou falha do salvamento.
+
+
+    userController.clear();
+    costController.clear();
+    restaurantController.clear();
+  }
 
 }

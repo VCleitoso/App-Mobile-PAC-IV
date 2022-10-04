@@ -63,7 +63,7 @@ class LoginInstance extends State<Login> {
                     child: const Text(
                       "Login",
                       style: TextStyle(
-                        color: Colors.white,
+                        color: textoCor,
                         fontWeight: FontWeight.w500,
                         fontSize: 30,
                       ),
