@@ -166,7 +166,7 @@ class LoginInstance extends State<Login> {
 
   void TheFunny(){
     contador ++;
-    if (contador >= 10){
+    if (contador >= 15){
       contador = 0;
       Navigator.push(context, PageRouteBuilder(
         pageBuilder: (_,__,___) => const Funny(),
