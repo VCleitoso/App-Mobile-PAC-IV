@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:frases_aletorias_app/main.dart';
+import 'package:frases_aletorias_app/AdminInserirGasto.dart';
+import 'main.dart';
 
 class AdminPage extends StatelessWidget{
 
@@ -48,7 +49,10 @@ class AdminPage extends StatelessWidget{
                         backgroundColor: MaterialStateProperty.all(botaoCor),
                       ),
                       onPressed: (){
-                        //Inserir ajuda ao esquecer a senha
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => AdminInserirGasto())
+                        );
                       },
                       child: const Text("INSERIR GASTO")
                   ),

@@ -1,7 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:frases_aletorias_app/surprise.dart';
+import 'surprise.dart';
 import 'UserPage.dart';
 import 'HelpPage.dart';
 import 'AdminPage.dart';
@@ -38,8 +38,7 @@ class LoginInstance extends State<Login> {
           backgroundColor: appbarCor,
           leading: Padding(
             padding: const EdgeInsets.fromLTRB(0,0,0,0),
-              child: FlatButton(
-
+              child: TextButton(
               onPressed: (){
                 Surpresa();
                 }, 
@@ -71,15 +70,6 @@ class LoginInstance extends State<Login> {
                     )
                   ),
 
-                  //SUBTÍTULO
-                  /*Container(
-                    alignment: Alignment.center,
-                    padding: const EdgeInsets.all(10),
-                    child: const Text(
-                      "Login",
-                      style: TextStyle(fontSize: 20),
-                    ),
-                  ),*/
 
                   //ENTRADA USUÁRIO
                   Container(
@@ -176,7 +166,7 @@ class LoginInstance extends State<Login> {
 
   void Surpresa(){
     contador ++;
-    if (contador >= 15){
+    if (contador >= 10){
       contador = 0;
       Navigator.push(context, PageRouteBuilder(
         pageBuilder: (_,__,___) => const Surprise(),

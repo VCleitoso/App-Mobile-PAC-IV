@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:frases_aletorias_app/main.dart';
+import 'main.dart';
 
 class HelpPage extends StatelessWidget{
 
