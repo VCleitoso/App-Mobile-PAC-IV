@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class Surprise extends StatelessWidget{
-  const Surprise({Key? key}) : super(key: key);
+class Funny extends StatelessWidget{
+  const Funny({Key? key}) : super(key: key);
 
 
 

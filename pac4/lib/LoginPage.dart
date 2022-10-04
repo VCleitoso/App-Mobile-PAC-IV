@@ -1,7 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'surprise.dart';
+import 'TheFunny.dart';
 import 'UserPage.dart';
 import 'HelpPage.dart';
 import 'AdminPage.dart';
@@ -40,7 +40,7 @@ class LoginInstance extends State<Login> {
             padding: const EdgeInsets.fromLTRB(0,0,0,0),
               child: TextButton(
               onPressed: (){
-                Surpresa();
+                TheFunny();
                 }, 
               child: Image.asset('logo_branco_sem_preto.png')),
             ),
@@ -164,12 +164,12 @@ class LoginInstance extends State<Login> {
     );
   }
 
-  void Surpresa(){
+  void TheFunny(){
     contador ++;
     if (contador >= 10){
       contador = 0;
       Navigator.push(context, PageRouteBuilder(
-        pageBuilder: (_,__,___) => const Surprise(),
+        pageBuilder: (_,__,___) => const Funny(),
         transitionDuration: const Duration(milliseconds: 500),
         transitionsBuilder: (_, a, __, c) => FadeTransition(opacity: a, child: c),
       ));
