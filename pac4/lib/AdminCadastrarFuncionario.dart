@@ -31,6 +31,20 @@ class AdminCadastrarFuncionarioInstance extends State<AdminCadastrarFuncionario>
 
               children: [
 
+                //TÍTULO GRANDÃO
+                Container(
+                    alignment: Alignment.center,
+                    padding: const EdgeInsets.all(10),
+                    child: const Text(
+                      "Cadastrar Funcionário",
+                      style: TextStyle(
+                        color: textoCor,
+                        fontWeight: FontWeight.w500,
+                        fontSize: 30,
+                      ),
+                    )
+                ),
+
               ] // Children
 
           ),

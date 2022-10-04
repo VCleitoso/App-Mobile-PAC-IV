@@ -32,6 +32,20 @@ class AdminAlterarSenhaInstance extends State<AdminAlterarSenha>{
 
               children: [
 
+                //TÍTULO GRANDÃO
+                Container(
+                    alignment: Alignment.center,
+                    padding: const EdgeInsets.all(10),
+                    child: const Text(
+                      "Alterar Senha",
+                      style: TextStyle(
+                        color: textoCor,
+                        fontWeight: FontWeight.w500,
+                        fontSize: 30,
+                      ),
+                    )
+                ),
+
               ] // Children
 
           ),

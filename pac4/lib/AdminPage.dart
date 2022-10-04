@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:frases_aletorias_app/AdminAlterarSenha.dart';
+import 'package:frases_aletorias_app/AdminCadastrarFuncionario.dart';
 import 'package:frases_aletorias_app/AdminInserirGasto.dart';
+import 'package:frases_aletorias_app/AdminVisualizarFuncionario.dart';
 import 'main.dart';
 
 class AdminPage extends StatelessWidget{
@@ -67,7 +70,10 @@ class AdminPage extends StatelessWidget{
                     backgroundColor: MaterialStateProperty.all(botaoCor),
                   ),
                     onPressed: (){
-                      //Inserir tela de visualizar, alterar e deletar funcionário
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => AdminVisualizarFuncionario())
+                      );
                     },
                     child: const Text("VISUALIZAR FUNCIONÁRIO")
                 ),
@@ -82,7 +88,10 @@ class AdminPage extends StatelessWidget{
                       backgroundColor: MaterialStateProperty.all(botaoCor),
                     ),
                     onPressed: (){
-                      //Inserir tela de cadastrar funcionário
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => AdminCadastrarFuncionario())
+                      );
                     },
                     child: const Text("CADASTRAR FUNCIONÁRIO")
                 ),
@@ -97,7 +106,10 @@ class AdminPage extends StatelessWidget{
                       backgroundColor: MaterialStateProperty.all(botaoCor),
                     ),
                     onPressed: (){
-                      //Inserir tela de alterar login de admin
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => AdminAlterarSenha())
+                      );
                     },
                     child: const Text("ALTERAR LOGIN DE ADMINISTRADOR")
                 ),

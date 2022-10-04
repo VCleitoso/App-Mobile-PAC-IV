@@ -31,6 +31,20 @@ class AdminVisualizarFuncionarioInstance extends State<AdminVisualizarFuncionari
 
             children: [
 
+              //TÍTULO GRANDÃO
+              Container(
+                  alignment: Alignment.center,
+                  padding: const EdgeInsets.all(10),
+                  child: const Text(
+                    "Visualizar Funcionário",
+                    style: TextStyle(
+                      color: textoCor,
+                      fontWeight: FontWeight.w500,
+                      fontSize: 30,
+                    ),
+                  )
+              ),
+
             ] // Children
 
           ),
