@@ -11,7 +11,9 @@ class HelpPage extends StatelessWidget{
       backgroundColor: fundoCor,
       appBar: AppBar(
         centerTitle: false,
+
         title: const Text("MyMeal", style: TextStyle(color: textoCor,fontSize: 20),),
+
         backgroundColor: appbarCor,
         //actions: [],//Coisas a direita
       ),
