@@ -1,5 +1,4 @@
 import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'TheFunny.dart';
 import 'UserPage.dart';
@@ -18,6 +17,8 @@ class LoginInstance extends State<Login> {
 
   final userController = TextEditingController();
   final passwordController = TextEditingController();
+  bool obscureText = true;
+  IconData iconPassword = Icons.visibility;
 
   @override
   void dispose(){
@@ -42,7 +43,7 @@ class LoginInstance extends State<Login> {
               onPressed: (){
                 TheFunny();
                 }, 
-              child: Image.asset('logo_branco_sem_preto.png')),
+              child: Image.asset('logo_branco_sem_preto.png', color: textoCor,)),
             ),
         ),
       body: Container(
@@ -87,11 +88,27 @@ class LoginInstance extends State<Login> {
                   Container(
                     padding: const EdgeInsets.all(10),
                     child: TextField(
-                      obscureText: true,
+                      obscureText: obscureText,
                       controller: passwordController,
-                      decoration: const InputDecoration(
-                        border: OutlineInputBorder(),
-                        labelText: "Senha",
+                      decoration: InputDecoration(
+                          border: OutlineInputBorder(),
+                          labelText: "Senha",
+                          suffixIcon: IconButton(
+                            onPressed:(){
+                              if(obscureText == true) {
+                                setState(() {
+                                  obscureText = false;
+                                  iconPassword = Icons.visibility_off;
+                                });
+                              }else{
+                                setState(() {
+                                  obscureText = true;
+                                  iconPassword = Icons.visibility;
+                                });
+                              }
+                            },
+                            icon: Icon(iconPassword),
+                          )
                       ),
                     ),
                   ),

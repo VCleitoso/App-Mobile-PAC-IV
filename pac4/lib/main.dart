@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'LoginPage.dart';
 
-const botaoCor = Colors.redAccent;
-final fundoCor = Colors.black;
+const botaoCor = Colors.black38;
+const fundoCor = Colors.grey;
 const textoCor = Colors.white;
-const appbarCor = Colors.red;
-const imagemFundo = DecorationImage(colorFilter: ColorFilter.mode(Colors.red, BlendMode.modulate,),image: AssetImage('logoMyMeal.png'),fit: BoxFit.contain);
+const appbarCor = Colors.black38;
+const imagemFundo = DecorationImage(colorFilter: ColorFilter.mode(Colors.grey, BlendMode.modulate,),image: AssetImage('logo_branco_sem_preto.png'),fit: BoxFit.contain);
 
 void main() {
-
+//teste do fetch
   runApp(MaterialApp(
     debugShowCheckedModeBanner: false,
     title: "Trabalho PAC IV",
