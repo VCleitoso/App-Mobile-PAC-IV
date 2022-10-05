@@ -5,7 +5,7 @@ const botaoCor = Colors.black38;
 const fundoCor = Colors.grey;
 const textoCor = Colors.white;
 const appbarCor = Colors.black38;
-const imagemFundo = DecorationImage(colorFilter: ColorFilter.mode(Colors.black12, BlendMode.modulate,),image: AssetImage('logo_branco_sem_preto.png'),fit: BoxFit.contain);
+const imagemFundo = DecorationImage(colorFilter: ColorFilter.mode(Colors.grey, BlendMode.modulate,),image: AssetImage('logo_branco_sem_preto.png'),fit: BoxFit.contain);
 
 void main() {
 
