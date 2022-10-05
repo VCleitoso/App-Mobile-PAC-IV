@@ -92,6 +92,7 @@ class AdminInserirGastoInstance extends State<AdminInserirGasto>{
 
               //Campo multi seleção restaurante
               Container(
+                padding: const EdgeInsets.all(10),
                   child: ValueListenableBuilder(
                    valueListenable:dropValue,
                       builder: (BuildContext context,String value,_) {
