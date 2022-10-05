@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'LoginPage.dart';
 
-const botaoCor = Colors.redAccent;
+const botaoCor = Colors.grey;
 final fundoCor = Colors.black;
 const textoCor = Colors.white;
-const appbarCor = Colors.red;
-const imagemFundo = DecorationImage(colorFilter: ColorFilter.mode(Colors.red, BlendMode.modulate,),image: AssetImage('logoMyMeal.png'),fit: BoxFit.contain);
+const appbarCor = Colors.grey;
+const imagemFundo = DecorationImage(colorFilter: ColorFilter.mode(Colors.lightGreen, BlendMode.modulate,),image: AssetImage('logo_branco_sem_preto.png'),fit: BoxFit.contain);
 
 void main() {
 

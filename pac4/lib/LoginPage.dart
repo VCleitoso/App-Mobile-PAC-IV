@@ -42,7 +42,7 @@ class LoginInstance extends State<Login> {
               onPressed: (){
                 TheFunny();
                 }, 
-              child: Image.asset('logo_branco_sem_preto.png')),
+              child: Image.asset('logo_branco_sem_preto.png', color: textoCor,)),
             ),
         ),
       body: Container(
