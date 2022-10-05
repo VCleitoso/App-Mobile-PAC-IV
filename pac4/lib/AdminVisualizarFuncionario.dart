@@ -21,9 +21,7 @@ class AdminVisualizarFuncionarioInstance extends State<AdminVisualizarFuncionari
       ),
       body: Container(
         decoration: const BoxDecoration(
-          image: DecorationImage(
-              image: AssetImage('logoMyMeal.png'),
-              fit: BoxFit.contain),
+          image: imagemFundo,
         ),
         child: Padding(
           padding: const EdgeInsets.only(top: 10),

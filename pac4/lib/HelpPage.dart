@@ -17,8 +17,7 @@ class HelpPage extends StatelessWidget{
       ),
       body: Container(
         decoration: const BoxDecoration(
-          image: DecorationImage(image: AssetImage('logoMyMeal.png'),
-          fit: BoxFit.contain),
+          image: imagemFundo,
         ),
         child: Padding(
           padding: const EdgeInsets.all(10),
