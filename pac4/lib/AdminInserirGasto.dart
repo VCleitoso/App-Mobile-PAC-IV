@@ -13,6 +13,8 @@ class AdminInserirGastoInstance extends State<AdminInserirGasto>{
   final userController = TextEditingController();
   final costController = TextEditingController();
   final restaurantController = TextEditingController();
+  final dropValue = ValueNotifier('');
+  final dropOpcoes = ['Restaurante bar do zé','Marmita do pele','Aqui é top marmitex','Marmitaria da vovô'];
 
   @override
   Widget build(BuildContext context) {
@@ -74,7 +76,7 @@ class AdminInserirGastoInstance extends State<AdminInserirGasto>{
                 ),
               ),
 
-              //Inserir Restaurante
+              /*//Inserir Restaurante
               Container(
                 //Alterar para baixar lista de sugestões
                 padding: const EdgeInsets.all(10),
@@ -86,7 +88,37 @@ class AdminInserirGastoInstance extends State<AdminInserirGasto>{
                     hintText: "Ex: Duas Rodas",
                   ),
                 ),
-              ),
+              ),*/
+
+              //Campo multi seleção restaurante
+              Container(
+                  child: ValueListenableBuilder(
+                   valueListenable:dropValue,
+                      builder: (BuildContext context,String value,_) {
+                      return SizedBox(
+                        width: 280,
+                        child: DropdownButtonFormField<String>(
+                          isExpanded: true,
+                          icon:  const Icon(Icons.restaurant),
+                          hint: const Text('Escolha o restaurante'),
+                          decoration:InputDecoration(
+                            //label: const Text('Restaurante'),
+                            border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(6),
+                            )
+                          ),
+                          value: (value.isEmpty) ? null : value,
+                          onChanged: (escolha) => dropValue.value = escolha.toString(),
+                          items: dropOpcoes
+                              .map((op) => DropdownMenuItem(
+                              value: op,
+                              child: Text(op),
+                          ))
+                              .toList(),
+                        ),
+                      );
+                     }),
+                  ),
 
               //Botão de Salvar
               Container(
