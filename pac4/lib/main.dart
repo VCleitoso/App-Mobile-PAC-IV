@@ -8,7 +8,7 @@ const appbarCor = Colors.black38;
 const imagemFundo = DecorationImage(colorFilter: ColorFilter.mode(Colors.grey, BlendMode.modulate,),image: AssetImage('logo_branco_sem_preto.png'),fit: BoxFit.contain);
 
 void main() {
-
+//teste do fetch
   runApp(MaterialApp(
     debugShowCheckedModeBanner: false,
     title: "Trabalho PAC IV",
