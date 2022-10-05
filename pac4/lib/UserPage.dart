@@ -11,7 +11,7 @@ class UserPage extends StatelessWidget{
       backgroundColor: fundoCor,
       appBar: AppBar(
         centerTitle: false,
-        title: const Text("MyMeal"),
+        title: const Text("MyMeal", style: TextStyle(color: textoCor,fontSize: 20),),
         backgroundColor: appbarCor,
         //actions: [],//Coisas a direita
       ),
@@ -32,7 +32,7 @@ class UserPage extends StatelessWidget{
                   child: const Text(
                     "USUÁRIO",
                     style: TextStyle(
-                      color: Colors.white,
+                      color: textoCor,
                       fontWeight: FontWeight.w500,
                       fontSize: 30,
                     ),
@@ -47,7 +47,8 @@ class UserPage extends StatelessWidget{
 
                   "NOME DO USUÁRIO: Nome do Usuário",
                   style: TextStyle(
-                      fontSize: 20,
+                    fontSize: 20,
+                    color: textoCor,
                   ),
                 ),
               ),
@@ -58,7 +59,8 @@ class UserPage extends StatelessWidget{
                 padding: const EdgeInsets.all(10),
                 child: const Text(
                   "NÚMERO DO FUNCIONÁRIO: 000000",
-                  style: TextStyle(fontSize: 20),
+                  style: TextStyle(color: textoCor,fontSize: 20),
+
                 ),
               ),
 
@@ -68,7 +70,7 @@ class UserPage extends StatelessWidget{
                 padding: const EdgeInsets.all(10),
                 child: const Text(
                   "SALDO: RS 0,00",
-                  style: TextStyle(fontSize: 20),
+                  style: TextStyle(color: textoCor,fontSize: 20),
                 ),
               ),
 
@@ -87,7 +89,7 @@ class UserPage extends StatelessWidget{
                         padding: EdgeInsets.all(5),
                         child: Text(
                           "HISTÓRICO",
-                          style: TextStyle(fontSize: 30),
+                          style: TextStyle(fontSize: 30, color: textoCor),
                         ),
                       ),
                     ),
@@ -102,7 +104,7 @@ class UserPage extends StatelessWidget{
                           children: [
                             const Text(
                               "Data",
-                              style: TextStyle(fontSize: 15),
+                              style: TextStyle(color: textoCor,fontSize: 15),
                             ),
                           ],
                         ),
@@ -112,7 +114,7 @@ class UserPage extends StatelessWidget{
                           children: [
                             const Text(
                               "Restaurante",
-                              style: TextStyle(fontSize: 15),
+                              style: TextStyle(color: textoCor,fontSize: 15),
                             ),
                           ],
                         ),
@@ -122,7 +124,7 @@ class UserPage extends StatelessWidget{
                           children: [
                             const Text(
                               "Gasto",
-                              style: TextStyle(fontSize: 15),
+                              style: TextStyle(color: textoCor,fontSize: 15),
                             ),
                           ],
                         ),

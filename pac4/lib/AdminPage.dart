@@ -15,7 +15,7 @@ class AdminPage extends StatelessWidget{
         backgroundColor: fundoCor,
         appBar: AppBar(
         centerTitle: false,
-        title: const Text("MyMeal"),
+        title: const Text("MyMeal", style: TextStyle(color: textoCor,fontSize: 20),),
     backgroundColor: appbarCor,
     //actions: [],//Coisas a direita
     ),
@@ -36,7 +36,7 @@ class AdminPage extends StatelessWidget{
                   child: const Text(
                     "Admin",
                     style: TextStyle(
-                      color: Colors.white,
+                      color: textoCor,
                       fontWeight: FontWeight.w500,
                       fontSize: 30,
                     ),
@@ -57,7 +57,7 @@ class AdminPage extends StatelessWidget{
                             MaterialPageRoute(builder: (context) => AdminInserirGasto())
                         );
                       },
-                      child: const Text("INSERIR GASTO")
+                      child: const Text("INSERIR GASTO", style: TextStyle(color: textoCor,fontSize: 15),)
                   ),
               ),
 
@@ -75,7 +75,7 @@ class AdminPage extends StatelessWidget{
                           MaterialPageRoute(builder: (context) => AdminVisualizarFuncionario())
                       );
                     },
-                    child: const Text("VISUALIZAR FUNCIONÁRIO")
+                    child: const Text("VISUALIZAR FUNCIONÁRIO", style: TextStyle(color: textoCor,fontSize: 15),)
                 ),
               ),
 
@@ -93,7 +93,7 @@ class AdminPage extends StatelessWidget{
                           MaterialPageRoute(builder: (context) => AdminCadastrarFuncionario())
                       );
                     },
-                    child: const Text("CADASTRAR FUNCIONÁRIO")
+                    child: const Text("CADASTRAR FUNCIONÁRIO", style: TextStyle(color: textoCor,fontSize: 15),)
                 ),
               ),
 
@@ -111,7 +111,7 @@ class AdminPage extends StatelessWidget{
                           MaterialPageRoute(builder: (context) => AdminAlterarSenha())
                       );
                     },
-                    child: const Text("ALTERAR LOGIN DE ADMINISTRADOR")
+                    child: const Text("ALTERAR LOGIN DE ADMINISTRADOR", style: TextStyle(color: textoCor,fontSize: 15),)
                 ),
               ),
 

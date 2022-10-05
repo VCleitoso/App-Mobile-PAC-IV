@@ -17,7 +17,7 @@ class AdminAlterarSenhaInstance extends State<AdminAlterarSenha>{
       backgroundColor: fundoCor,
       appBar: AppBar(
         centerTitle: false,
-        title: const Text("MyMeal"),
+        title: const Text("MyMeal", style: TextStyle(color: textoCor,fontSize: 20),),
         backgroundColor: appbarCor,
       ),
       body: Container(

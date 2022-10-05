@@ -3,7 +3,7 @@ import 'LoginPage.dart';
 
 const botaoCor = Colors.green;
 final fundoCor = Colors.lightGreen[300];
-const textoCor = Colors.white;
+const textoCor = Colors.black;
 const appbarCor = Colors.green;
 
 

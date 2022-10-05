@@ -16,7 +16,7 @@ class AdminVisualizarFuncionarioInstance extends State<AdminVisualizarFuncionari
       backgroundColor: fundoCor,
       appBar: AppBar(
         centerTitle: false,
-        title: const Text("MyMeal"),
+        title: const Text("MyMeal", style: TextStyle(color: textoCor,fontSize: 20),),
         backgroundColor: appbarCor,
       ),
       body: Container(

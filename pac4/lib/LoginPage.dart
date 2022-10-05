@@ -34,7 +34,7 @@ class LoginInstance extends State<Login> {
       backgroundColor: fundoCor,
       appBar: AppBar(
           centerTitle: false,
-          title: const Text("MyMeal"),
+          title: const Text("MyMeal", style: TextStyle(color: textoCor,fontSize: 20),),
           backgroundColor: appbarCor,
           leading: Padding(
             padding: const EdgeInsets.fromLTRB(0,0,0,0),
@@ -116,7 +116,7 @@ class LoginInstance extends State<Login> {
                       style: ButtonStyle(
                         backgroundColor: MaterialStateProperty.all(botaoCor)
                       ),
-                      child: const Text('Login'),
+                      child: const Text('Login', style: TextStyle(color: textoCor,fontSize: 15),),
                       onPressed: () {
                         if(userController.text == "admin" && passwordController.text == "admin"){
                           Navigator.push(
@@ -141,7 +141,7 @@ class LoginInstance extends State<Login> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      const Text("Não possui conta?"),
+                      const Text("Não possui conta?", style: TextStyle(color: textoCor,fontSize: 15),),
                       TextButton(
                         child: const Text(
                             "Contate seu administrador",
