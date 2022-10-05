@@ -85,6 +85,7 @@ class UserPage extends StatelessWidget{
                       decoration: const BoxDecoration(
                         color: appbarCor,
                       ),
+                      alignment: Alignment.bottomCenter,
                       child: const Padding(
                         padding: EdgeInsets.all(5),
                         child: Text(
