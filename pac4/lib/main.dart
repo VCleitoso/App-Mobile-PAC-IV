@@ -3,7 +3,7 @@ import 'LoginPage.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_core/firebase_core.dart';
 
-//comentario massa
+//fugisso
 const botaoCor = Colors.black38;
 const fundoCor = Colors.grey;
 const textoCor = Colors.white;
