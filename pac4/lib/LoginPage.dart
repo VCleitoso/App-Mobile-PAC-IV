@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'TheFunny.dart';
 import 'UserPage.dart';
@@ -134,19 +135,8 @@ class LoginInstance extends State<Login> {
                       ),
                       child: const Text('Login', style: TextStyle(color: textoCor,fontSize: 15),),
                       onPressed: () {
-                        if(userController.text == "admin" && passwordController.text == "admin"){
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => const AdminPage())
-                          );
-                        }else {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => UserPage())
-                          );
-                        }
+
+                        Entrar(context, userController.text, passwordController.text);
                         userController.clear();
                         passwordController.clear();
 
@@ -198,5 +188,19 @@ class LoginInstance extends State<Login> {
   
 }
 
-
+void Entrar(context, nome, senha){
+  if(nome == "admin" && senha == "admin"){
+    Navigator.push(
+        context,
+        MaterialPageRoute(
+            builder: (context) => const AdminPage())
+    );
+  }else {
+    Navigator.push(
+        context,
+        MaterialPageRoute(
+            builder: (context) => UserPage())
+    );
+  }
+}
 
