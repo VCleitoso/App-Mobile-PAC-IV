@@ -1,5 +1,7 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'main.dart';
+import '';
 
 class AdminCadastrarFuncionario extends StatefulWidget{
   const AdminCadastrarFuncionario({Key? key}) : super(key: key);
@@ -94,7 +96,7 @@ class AdminCadastrarFuncionarioInstance extends State<AdminCadastrarFuncionario>
                     ),
                     child: const Text('Salvar'),
                     onPressed: () {
-
+                      Cadastrar(codeController.text, userController.text, passwordController.text);
                     }, //onPressed
                   ),
                 ),
@@ -108,4 +110,11 @@ class AdminCadastrarFuncionarioInstance extends State<AdminCadastrarFuncionario>
     );
   }
 
+}
+
+void Cadastrar(code, nome, senha){
+  if(code != null) {
+    FirebaseFirestore.instance.collection('usuarios').doc(code).set(
+        {'Nome': nome, 'Senha': senha});
+  }
 }
