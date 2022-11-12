@@ -82,7 +82,7 @@ class LoginInstance extends State<Login> {
                       controller: userController,
                       decoration: const InputDecoration(
                         border: OutlineInputBorder(),
-                        labelText: "Nome de Usuário",
+                        labelText: "Código de Funcionário",
                       ),
                     ),
                   ),
