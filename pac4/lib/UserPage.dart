@@ -29,8 +29,8 @@ class UserPage extends StatelessWidget{
               Container(
                   alignment: Alignment.center,
                   padding: const EdgeInsets.all(10),
-                  child: const Text(
-                    "USUÁRIO",
+                  child: Text(
+                    'USUÁRIO',
                     style: TextStyle(
                       color: textoCor,
                       fontWeight: FontWeight.w500,
@@ -45,7 +45,7 @@ class UserPage extends StatelessWidget{
                 padding: const EdgeInsets.all(10),
                 child: Text(
 
-                  "NOME DO USUÁRIO: Nome do Usuário",
+                  "NOME DO USUÁRIO: $Nome",
                   style: TextStyle(
                     fontSize: 20,
                     color: textoCor,
@@ -57,8 +57,8 @@ class UserPage extends StatelessWidget{
               Container(
                 alignment: Alignment.topLeft,
                 padding: const EdgeInsets.all(10),
-                child: const Text(
-                  "NÚMERO DO FUNCIONÁRIO: 000000",
+                child: Text(
+                  "NÚMERO DO FUNCIONÁRIO: $Codigo",
                   style: TextStyle(color: textoCor,fontSize: 20),
 
                 ),

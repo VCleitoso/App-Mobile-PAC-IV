@@ -7,7 +7,8 @@ import 'HelpPage.dart';
 import 'AdminPage.dart';
 import 'main.dart';
 
-var Nome;
+var Nome = "nome";
+var Codigo = "codigo";
 
 class Login extends StatefulWidget{
   const Login({Key? key}) : super(key: key);
@@ -206,6 +207,8 @@ void Entrar(context, code, senha){
       querySnapshot.docs.forEach((doc) {
         if(doc["Code"] == code && doc["Senha"] == senha) {
           print("Sucesso parceiro");
+          Nome = doc["Nome"];
+          Codigo = doc["Code"];
           Navigator.push(
               context,
               MaterialPageRoute(
