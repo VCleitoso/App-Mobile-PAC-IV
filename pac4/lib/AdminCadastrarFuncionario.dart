@@ -118,6 +118,7 @@ class AdminCadastrarFuncionarioInstance extends State<AdminCadastrarFuncionario>
 void Cadastrar(code, nome, senha){
   if(code != null && code != "") {
     FirebaseFirestore.instance.collection('usuarios').doc(code).set(
-        {'Nome': nome, 'Senha': senha});
+        {'Nome': nome, 'Senha': senha, 'Code' : code});
   }
 }
+

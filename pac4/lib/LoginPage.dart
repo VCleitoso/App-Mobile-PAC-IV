@@ -7,6 +7,8 @@ import 'HelpPage.dart';
 import 'AdminPage.dart';
 import 'main.dart';
 
+var Nome;
+
 class Login extends StatefulWidget{
   const Login({Key? key}) : super(key: key);
 
@@ -188,14 +190,25 @@ class LoginInstance extends State<Login> {
   
 }
 
-void Entrar(context, nome, senha){
-  if(nome == "admin" && senha == "admin"){
+void Entrar(context, code, senha){
+  if(code == "admin" && senha == "admin"){
     Navigator.push(
         context,
         MaterialPageRoute(
             builder: (context) => const AdminPage())
     );
   }else {
+    //FirebaseAuth snapshot
+    FirebaseFirestore.instance
+        .collection('usuarios')
+        .get()
+        .then((QuerySnapshot querySnapshot) {
+      querySnapshot.docs.forEach((doc) {
+        if(doc["Code"] == code && doc["Senha"] == senha) {
+          print("Sucesso parceiro");
+        };
+      });
+    });
     Navigator.push(
         context,
         MaterialPageRoute(
