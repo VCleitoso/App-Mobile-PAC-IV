@@ -206,14 +206,15 @@ void Entrar(context, code, senha){
       querySnapshot.docs.forEach((doc) {
         if(doc["Code"] == code && doc["Senha"] == senha) {
           print("Sucesso parceiro");
+          Navigator.push(
+              context,
+              MaterialPageRoute(
+                  builder: (context) => UserPage())
+          );
         };
       });
     });
-    Navigator.push(
-        context,
-        MaterialPageRoute(
-            builder: (context) => UserPage())
-    );
+
   }
 }
 
