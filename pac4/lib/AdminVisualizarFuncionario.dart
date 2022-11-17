@@ -2,10 +2,11 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'main.dart';
 import 'AdminAlterarFuncionario.dart';
+import 'AdminPage.dart';
 
-String fillNumber = '';
-String fillNome = '';
-String fillSenha = '';
+var fillNumber = '';
+var fillNome = '';
+var fillSenha = '';
 final fireController = TextEditingController();
 
 class AdminVisualizarFuncionario extends StatefulWidget {
@@ -71,22 +72,7 @@ class AdminVisualizarFuncionarioInstance
                 child: const Text('Confirmar'),
                 onPressed: () {
                   fillNumber = fireController.text;
-                  fillNome = FirebaseFirestore.instance
-                      .collection('usuarios')
-                      .doc(fillNumber)
-                      .collection('Nome')
-                      .toString();
-                  fillSenha = FirebaseFirestore.instance
-                      .collection('usuarios')
-                      .doc(fillNumber)
-                      .collection('Nome')
-                      .toString();
-                  fireController.clear();
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => AdminAlterarFuncionario()));
-                  //mandar pra outra tela
+                  Pesquisa(context, fillNumber);
                 }, //onPressed
               ),
             ),
@@ -96,5 +82,31 @@ class AdminVisualizarFuncionarioInstance
         ),
       ),
     );
+  }
+}
+
+void Pesquisa(context, code) {
+  if (code == "admin") {
+    Navigator.push(
+        context, MaterialPageRoute(builder: (context) => const AdminPage()));
+  } else {
+    //FirebaseAuth snapshot
+    FirebaseFirestore.instance
+        .collection('usuarios')
+        .get()
+        .then((QuerySnapshot querySnapshot) {
+      querySnapshot.docs.forEach((doc) {
+        if (doc["Code"] == code) {
+          print("Sucesso parceiro");
+          fillNome = doc["Nome"];
+          fillSenha = doc["Senha"];
+          Navigator.push(
+              context,
+              MaterialPageRoute(
+                  builder: (context) => AdminAlterarFuncionario()));
+        }
+        ;
+      });
+    });
   }
 }

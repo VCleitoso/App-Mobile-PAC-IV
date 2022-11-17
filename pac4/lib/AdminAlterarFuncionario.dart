@@ -42,7 +42,7 @@ class AdminAlterarFuncionarioInstance extends State<AdminAlterarFuncionario> {
                 alignment: Alignment.center,
                 padding: EdgeInsets.all(10),
                 child: Text(
-                  "Alterar Funcionário $fillNumber",
+                  "Alterar Funcionário $fillNumber, $fillNome",
                   style: TextStyle(
                     color: textoCor,
                     fontWeight: FontWeight.w500,
@@ -52,13 +52,13 @@ class AdminAlterarFuncionarioInstance extends State<AdminAlterarFuncionario> {
 
             //Inserir nome
             Container(
-              padding: const EdgeInsets.all(10),
+              padding: EdgeInsets.all(10),
               child: TextField(
                 controller: varNome,
                 decoration: InputDecoration(
                   border: OutlineInputBorder(),
-                  labelText: fillNome,
-                  hintText: "Digite o nome",
+                  labelText: "Nome",
+                  hintText: fillNome,
                 ),
               ),
             ),
@@ -66,12 +66,13 @@ class AdminAlterarFuncionarioInstance extends State<AdminAlterarFuncionario> {
             //Inserir senha
             Container(
               //Alterar para baixar lista de sugestões
-              padding: const EdgeInsets.all(10),
+              padding: EdgeInsets.all(10),
               child: TextField(
                 controller: varSenha,
                 decoration: InputDecoration(
                   border: OutlineInputBorder(),
-                  labelText: fillSenha,
+                  labelText: "Senha",
+                  hintText: fillSenha,
                 ),
               ),
             ),
@@ -79,11 +80,11 @@ class AdminAlterarFuncionarioInstance extends State<AdminAlterarFuncionario> {
             //Botão de Salvar
             Container(
               height: 50,
-              padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
+              padding: EdgeInsets.fromLTRB(10, 0, 10, 0),
               child: ElevatedButton(
                 style: ButtonStyle(
                     backgroundColor: MaterialStateProperty.all(botaoCor)),
-                child: const Text('Salvar'),
+                child: Text('Salvar'),
                 onPressed: () {
                   fillNome = varNome.text;
                   fillSenha = varSenha.text;
@@ -94,11 +95,11 @@ class AdminAlterarFuncionarioInstance extends State<AdminAlterarFuncionario> {
             //Botão de Remover
             Container(
               height: 50,
-              padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
+              padding: EdgeInsets.fromLTRB(10, 0, 10, 0),
               child: ElevatedButton(
                 style: ButtonStyle(
                     backgroundColor: MaterialStateProperty.all(botaoCor)),
-                child: const Text('Remover'),
+                child: Text('Remover'),
                 onPressed: () {
                   remover(fillNumber);
                 }, //onPressed
