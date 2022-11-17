@@ -199,7 +199,6 @@ void Entrar(context, code, senha){
             builder: (context) => const AdminPage())
     );
   }else {
-    //FirebaseAuth snapshot
     FirebaseFirestore.instance
         .collection('usuarios')
         .get()
@@ -214,7 +213,7 @@ void Entrar(context, code, senha){
               MaterialPageRoute(
                   builder: (context) => UserPage())
           );
-        };
+        }
       });
     });
 
