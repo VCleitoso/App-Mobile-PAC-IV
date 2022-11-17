@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'main.dart';
 
@@ -9,7 +10,7 @@ class AdminInserirGasto extends StatefulWidget{
 }
 
 class AdminInserirGastoInstance extends State<AdminInserirGasto>{
-
+  var restaurante = "restaurante";
   final userController = TextEditingController();
   final costController = TextEditingController();
   final restaurantController = TextEditingController();
@@ -131,7 +132,7 @@ class AdminInserirGastoInstance extends State<AdminInserirGasto>{
                   ),
                   child: const Text('Salvar'),
                   onPressed: () {
-                    adicionarGasto();
+                    adicionarGasto(userController.text,costController.text, restaurantController.text);
                   }, //onPressed
                 ),
               ),
@@ -145,9 +146,12 @@ class AdminInserirGastoInstance extends State<AdminInserirGasto>{
     );
   }
 
-  adicionarGasto(){
+  adicionarGasto(code, gasto, restaurante){
 
-    //A fazer: Guardar dados no banco de dados
+    if(code != null && code != "") {
+      FirebaseFirestore.instance.collection('usuarios').doc(code).collection('gastos').doc().set(
+          {'Custo' : gasto, 'Restaurante' : restaurante, 'Data' : DateTime.now().toString()});
+    }
 
     //A fazer: Pop Up para informar usuário do sucesso ou falha do salvamento.
 
@@ -156,5 +160,4 @@ class AdminInserirGastoInstance extends State<AdminInserirGasto>{
     costController.clear();
     restaurantController.clear();
   }
-
 }
