@@ -1,6 +1,9 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'main.dart';
 import 'LoginPage.dart';
+
+  List<Gasto>? listaGastos;
 
 class UserPage extends StatelessWidget{
 
@@ -146,3 +149,28 @@ class UserPage extends StatelessWidget{
 
 }
 
+class Gasto{
+
+  Gasto (c, d, r){
+    custo = c;
+    data = d;
+    restaurante = r;
+  }
+
+  String? custo;
+  String? data;
+  String? restaurante;
+}
+
+void getGastos (code){
+  FirebaseFirestore.instance
+      .collection('usuarios')
+      .doc(code)
+      .collection('gastos')
+      .get()
+      .then((QuerySnapshot querySnapshot) {
+        querySnapshot.docs.forEach((doc) {
+          listaGastos?.add(Gasto(doc["Custo"], doc["Data"], doc["Restaurante"]));
+        });
+      });
+}
