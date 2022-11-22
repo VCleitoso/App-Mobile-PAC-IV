@@ -2,7 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'main.dart';
 import 'LoginPage.dart';
-  Gasto g = Gasto("50","30042000","Restaurante do seu zé");
+  Gasto g = Gasto("50,00","30042000","Restaurante do seu zé");
   List<Gasto> listaGastos = [g];
 
 class UserPage extends StatelessWidget{
