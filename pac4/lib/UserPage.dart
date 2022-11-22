@@ -63,7 +63,7 @@ class UserPage extends StatelessWidget{
                 alignment: Alignment.topLeft,
                 padding: const EdgeInsets.all(10),
                 child: Text(
-                  "NÚMERO DO FUNCIONÁRIO: $Codigo",
+                  "CÓDIGO DO FUNCIONÁRIO: $Codigo",
                   style: TextStyle(color: textoCor,fontSize: 20),
 
                 ),

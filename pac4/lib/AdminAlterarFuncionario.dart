@@ -42,7 +42,7 @@ class AdminAlterarFuncionarioInstance extends State<AdminAlterarFuncionario> {
                 alignment: Alignment.center,
                 padding: EdgeInsets.all(10),
                 child: Text(
-                  "Alterar Funcionário $fillNumber, $fillNome",
+                  "Alterar Funcionários $fillNumber, $fillNome",
                   style: TextStyle(
                     color: textoCor,
                     fontWeight: FontWeight.w500,

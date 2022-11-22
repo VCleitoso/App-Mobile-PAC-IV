@@ -10,7 +10,7 @@ class AdminInserirGasto extends StatefulWidget{
 }
 
 class AdminInserirGastoInstance extends State<AdminInserirGasto>{
-  var restaurante = "restaurante";
+  var restaurante = "Restaurante";
   final userController = TextEditingController();
   final costController = TextEditingController();
   final restaurantController = TextEditingController();
@@ -58,7 +58,7 @@ class AdminInserirGastoInstance extends State<AdminInserirGasto>{
                   controller: userController,
                   decoration: const InputDecoration(
                     border: OutlineInputBorder(),
-                    labelText: "Número do Funcionário",
+                    labelText: "Código do Funcionário",
                     hintText: "Ex: 10808",
                   ),
                 ),

@@ -57,11 +57,11 @@ class AdminPage extends StatelessWidget{
                             MaterialPageRoute(builder: (context) => AdminInserirGasto())
                         );
                       },
-                      child: const Text("INSERIR GASTO", style: TextStyle(color: textoCor,fontSize: 15),)
+                      child: const Text("INSERIR GASTOS", style: TextStyle(color: textoCor,fontSize: 15),)
                   ),
               ),
 
-              //BOTÃO DE VISUALIZAR FUNCIONÁRIO
+              //BOTÃO DE VISUALIZAR FUNCIONÁRIOS
               Container(
                 height: 50,
                 padding: const EdgeInsets.all(10),
@@ -75,7 +75,7 @@ class AdminPage extends StatelessWidget{
                           MaterialPageRoute(builder: (context) => AdminVisualizarFuncionario())
                       );
                     },
-                    child: const Text("VISUALIZAR FUNCIONÁRIO", style: TextStyle(color: textoCor,fontSize: 15),)
+                    child: const Text("VISUALIZAR FUNCIONÁRIOS", style: TextStyle(color: textoCor,fontSize: 15),)
                 ),
               ),
 
@@ -93,7 +93,7 @@ class AdminPage extends StatelessWidget{
                           MaterialPageRoute(builder: (context) => AdminCadastrarFuncionario())
                       );
                     },
-                    child: const Text("CADASTRAR FUNCIONÁRIO", style: TextStyle(color: textoCor,fontSize: 15),)
+                    child: const Text("CADASTRAR FUNCIONÁRIOS", style: TextStyle(color: textoCor,fontSize: 15),)
                 ),
               ),
 

@@ -54,7 +54,7 @@ class AdminCadastrarFuncionarioInstance extends State<AdminCadastrarFuncionario>
                     controller: codeController,
                     decoration: const InputDecoration(
                       border: OutlineInputBorder(),
-                      labelText: "Número do novo Funcionário",
+                      labelText: "código do novo Funcionário",
                       hintText: "Ex: 10808",
                     ),
                   ),
