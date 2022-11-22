@@ -2,8 +2,8 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'main.dart';
 import 'LoginPage.dart';
-
-  List<Gasto>? listaGastos;
+  Gasto g = Gasto("50","30042000","Restaurante do seu zé");
+  List<Gasto> listaGastos = [g];
 
 class UserPage extends StatelessWidget{
 
@@ -11,6 +11,8 @@ class UserPage extends StatelessWidget{
 
   @override
   Widget build(BuildContext context){
+    getGastos(Codigo);
+
     return Scaffold(
       backgroundColor: fundoCor,
       appBar: AppBar(
@@ -106,8 +108,8 @@ class UserPage extends StatelessWidget{
                         //DATA
                         Column(
                           children: [
-                            const Text(
-                              "Data",
+                             Text(
+                               listaGastos[0].data,
                               style: TextStyle(color: textoCor,fontSize: 15),
                             ),
                           ],
@@ -116,18 +118,18 @@ class UserPage extends StatelessWidget{
                         //RESTAURANTE
                         Column(
                           children: [
-                            const Text(
-                              "Restaurante",
+                             Text(
+                              listaGastos[0].restaurante,
                               style: TextStyle(color: textoCor,fontSize: 15),
                             ),
                           ],
                         ),
 
-                        //GASTO
+                        //CUSTO
                         Column(
                           children: [
-                            const Text(
-                              "Gasto",
+                             Text(
+                               listaGastos[0].custo,
                               style: TextStyle(color: textoCor,fontSize: 15),
                             ),
                           ],
@@ -157,12 +159,12 @@ class Gasto{
     restaurante = r;
   }
 
-  String? custo;
-  String? data;
-  String? restaurante;
+  late String custo;
+  late String data;
+  late String restaurante;
 }
 
-void getGastos (code){
+Future<void> getGastos (code) async{
   FirebaseFirestore.instance
       .collection('usuarios')
       .doc(code)
@@ -170,7 +172,7 @@ void getGastos (code){
       .get()
       .then((QuerySnapshot querySnapshot) {
         querySnapshot.docs.forEach((doc) {
-          listaGastos?.add(Gasto(doc["Custo"], doc["Data"], doc["Restaurante"]));
+          listaGastos.add(Gasto(doc["Custo"], doc["Data"], doc["Restaurante"]));
         });
       });
 }

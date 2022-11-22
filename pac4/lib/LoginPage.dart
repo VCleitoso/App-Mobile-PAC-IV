@@ -205,7 +205,6 @@ void Entrar(context, code, senha){
         .then((QuerySnapshot querySnapshot) {
       querySnapshot.docs.forEach((doc) {
         if(doc["Code"] == code && doc["Senha"] == senha) {
-          print("Sucesso parceiro");
           Nome = doc["Nome"];
           Codigo = doc["Code"];
           Navigator.push(
