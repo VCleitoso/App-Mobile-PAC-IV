@@ -62,8 +62,8 @@ class LoginInstance extends State<Login> {
 
                   //TÍTULO GRANDÃO
                   Container(
+                    padding: EdgeInsets.only(top:40, bottom: 40),
                     alignment: Alignment.center,
-                    padding: const EdgeInsets.all(10),
                     child: const Text(
                       "Login",
                       style: TextStyle(
@@ -75,96 +75,140 @@ class LoginInstance extends State<Login> {
                   ),
 
 
+                  Expanded(
+                    flex: 20,
+                    child:
                   //ENTRADA USUÁRIO
                   Container(
-                    padding: const EdgeInsets.all(10),
-                    child: TextField(
-                      controller: userController,
-                      decoration: const InputDecoration(
-                        border: OutlineInputBorder(),
-                        labelText: "Código de Funcionário",
-                      ),
+                    padding: EdgeInsets.only(top:100, bottom:300 ),
+                    width: double.infinity,
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.only(
+                        topLeft: Radius.circular(40),
+                        topRight: Radius.circular(40),
+                      )
                     ),
-                  ),
+                    child: Padding(
+                      padding: const EdgeInsets.all(26),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+
+                          Padding(
+                            padding:EdgeInsets.only(bottom: 20),
+                            child:TextField(
+                            controller: userController,
+                            decoration: InputDecoration(
+                              border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(8.0),
+                              ),
+                              filled: true,
+                              fillColor: Color(0xFFe7edeb),
+                              hintStyle: TextStyle(color: Colors.grey),
+                              hoverColor: Colors.black12,
+                              hintText: "Codigo crachá",
+                              prefixIcon: Icon(
+                                Icons.badge,
+                                color: Colors.grey,
+                              )
+                            ),
+                          ),
+                          ),
 
 
-                  //ENTRADA SENHA
-                  Container(
-                    padding: const EdgeInsets.all(10),
-                    child: TextField(
-                      obscureText: obscureText,
-                      controller: passwordController,
-                      decoration: InputDecoration(
-                          border: OutlineInputBorder(),
-                          labelText: "Senha",
-                          suffixIcon: IconButton(
-                            onPressed:(){
-                              if(obscureText == true) {
-                                setState(() {
-                                  obscureText = false;
-                                  iconPassword = Icons.visibility_off;
-                                });
-                              }else{
-                                setState(() {
-                                  obscureText = true;
-                                  iconPassword = Icons.visibility;
-                                });
-                              }
-                            },
-                            icon: Icon(iconPassword),
+                          //ENTRADA SENHA
+                          TextField(
+                            obscureText: obscureText,
+                            controller: passwordController,
+                            decoration: InputDecoration(
+                                border: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(8.0),
+                                ),
+                                filled: true,
+                                fillColor: Color(0xFFe7edeb),
+                                hintStyle: TextStyle(color: Colors.grey),
+                                hoverColor: Colors.blueGrey,
+                                hintText: "Senha",
+                                prefixIcon: Icon(
+                                  Icons.password,
+                                  color: Colors.grey,
+                                ),
+
+                                suffixIcon: IconButton(
+                                  onPressed:(){
+                                    if(obscureText == true) {
+                                      setState(() {
+                                        obscureText = false;
+                                        iconPassword = Icons.visibility_off;
+                                      });
+                                    }else{
+                                      setState(() {
+                                        obscureText = true;
+                                        iconPassword = Icons.visibility;
+                                      });
+                                    }
+                                  },
+                                  icon: Icon(iconPassword),
+                                )
+                            ),
+                          ),
+
+                          //BOTÃO DE ESQUECI A SENHA
+                          TextButton(
+                              onPressed: (){
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(builder: (context) => HelpPage())
+                                );
+                              },
+                              child: const Text("Esqueci a senha.")
+                          ),
+
+                          //height: 50,
+                          //padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
+                          //child:
+                          ElevatedButton(
+                            style: ButtonStyle(
+                                backgroundColor: MaterialStateProperty.all(botaoCor)
+                            ),
+                            child: const Text('Login', style: TextStyle(color: textoCor,fontSize: 15),),
+                            onPressed: () {
+
+                              Entrar(context, userController.text, passwordController.text);
+                              userController.clear();
+                              passwordController.clear();
+
+                            }, //onPressed
+                          ),
+
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              const Text("Não possui conta?", style: TextStyle(color: textoCor,fontSize: 15),),
+                              TextButton(
+                                child: const Text(
+                                  "Contate seu administrador",
+                                  style: TextStyle(fontSize: 15),
+                                ),
+                                onPressed: (){
+                                  Navigator.push(
+                                      context,
+                                      MaterialPageRoute(builder: (context) => HelpPage())
+                                  );
+                                },
+                              ),
+                            ],
                           )
+                        ],
                       ),
+                    )
+
+
                     ),
                   ),
 
-                  //BOTÃO DE ESQUECI A SENHA
-                  TextButton(
-                      onPressed: (){
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(builder: (context) => HelpPage())
-                        );
-                      },
-                      child: const Text("Esqueci a senha.")
-                  ),
-
-                  //Botão de LOGIN
-                  Container(
-                    height: 50,
-                    padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
-                    child: ElevatedButton(
-                      style: ButtonStyle(
-                        backgroundColor: MaterialStateProperty.all(botaoCor)
-                      ),
-                      child: const Text('Login', style: TextStyle(color: textoCor,fontSize: 15),),
-                      onPressed: () {
-
-                        Entrar(context, userController.text, passwordController.text);
-                        userController.clear();
-                        passwordController.clear();
-
-                      }, //onPressed
-                    ),
-                  ),
-
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      const Text("Não possui conta?", style: TextStyle(color: textoCor,fontSize: 15),),
-                      TextButton(
-                        child: const Text(
-                            "Contate seu administrador",
-                          style: TextStyle(fontSize: 15),
-                        ),
-                        onPressed: (){
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(builder: (context) => HelpPage())
-                          );
-                        },
-                      ),
-                    ],
-                  )
                 ],
               ),
             ),
