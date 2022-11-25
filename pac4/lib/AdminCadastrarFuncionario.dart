@@ -3,25 +3,30 @@ import 'package:flutter/material.dart';
 import 'main.dart';
 import '';
 
-class AdminCadastrarFuncionario extends StatefulWidget{
+class AdminCadastrarFuncionario extends StatefulWidget {
   const AdminCadastrarFuncionario({Key? key}) : super(key: key);
 
-
   @override
-  State<AdminCadastrarFuncionario> createState() => AdminCadastrarFuncionarioInstance();
+  State<AdminCadastrarFuncionario> createState() =>
+      AdminCadastrarFuncionarioInstance();
 }
 
-class AdminCadastrarFuncionarioInstance extends State<AdminCadastrarFuncionario>{
+class AdminCadastrarFuncionarioInstance
+    extends State<AdminCadastrarFuncionario> {
   final userController = TextEditingController();
   final passwordController = TextEditingController();
   final codeController = TextEditingController();
+  final saldoController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: fundoCor,
       appBar: AppBar(
         centerTitle: false,
-        title: const Text("MyMeal", style: TextStyle(color: textoCor,fontSize: 20),),
+        title: const Text(
+          "MyMeal",
+          style: TextStyle(color: textoCor, fontSize: 20),
+        ),
         backgroundColor: appbarCor,
       ),
       body: Container(
@@ -30,95 +35,105 @@ class AdminCadastrarFuncionarioInstance extends State<AdminCadastrarFuncionario>
         ),
         child: Padding(
           padding: const EdgeInsets.only(top: 10),
-          child: ListView(
-
-              children: [
-
-                //TÍTULO GRANDÃO
-                Container(
-                    alignment: Alignment.center,
-                    padding: const EdgeInsets.all(10),
-                    child: const Text(
-                      "Cadastrar Funcionário",
-                      style: TextStyle(
-                        color: textoCor,
-                        fontWeight: FontWeight.w500,
-                        fontSize: 30,
-                      ),
-                    )
-                ),
-                //Inserir Número do Funcionário
-                Container(
-                  padding: const EdgeInsets.all(10),
-                  child: TextField(
-                    controller: codeController,
-                    decoration: const InputDecoration(
-                      border: OutlineInputBorder(),
-                      labelText: "código do novo Funcionário",
-                      hintText: "Ex: 10808",
-                    ),
+          child: ListView(children: [
+            //TÍTULO GRANDÃO
+            Container(
+                alignment: Alignment.center,
+                padding: const EdgeInsets.all(10),
+                child: const Text(
+                  "Cadastrar Funcionário",
+                  style: TextStyle(
+                    color: textoCor,
+                    fontWeight: FontWeight.w500,
+                    fontSize: 30,
                   ),
+                )),
+            //Inserir Número do Funcionário
+            Container(
+              padding: const EdgeInsets.all(10),
+              child: TextField(
+                controller: codeController,
+                decoration: const InputDecoration(
+                  border: OutlineInputBorder(),
+                  labelText: "código do novo Funcionário",
+                  hintText: "Ex: 10808",
                 ),
+              ),
+            ),
 
-                //Inserir nome
-                Container(
-                  padding: const EdgeInsets.all(10),
-                  child: TextField(
-                    controller: userController,
-                    decoration: const InputDecoration(
-                      border: OutlineInputBorder(),
-                      labelText: "Nome do novo funcionario",
-                      hintText: "Digite o nome",
-                    ),
-                  ),
+            //Inserir nome
+            Container(
+              padding: const EdgeInsets.all(10),
+              child: TextField(
+                controller: userController,
+                decoration: const InputDecoration(
+                  border: OutlineInputBorder(),
+                  labelText: "Nome do novo funcionario",
+                  hintText: "Digite o nome",
                 ),
+              ),
+            ),
 
-                //Inserir senha
-                Container(
-                  //Alterar para baixar lista de sugestões
-                  padding: const EdgeInsets.all(10),
-                  child: TextField(
-                    controller: passwordController,
-                    decoration: const InputDecoration(
-                      border: OutlineInputBorder(),
-                      labelText: "Senha",
-                      ),
-                  ),
+            //Inserir senha
+            Container(
+              //Alterar para baixar lista de sugestões
+              padding: const EdgeInsets.all(10),
+              child: TextField(
+                controller: passwordController,
+                decoration: const InputDecoration(
+                  border: OutlineInputBorder(),
+                  labelText: "Senha",
                 ),
-
-                //Botão de Salvar
-                Container(
-                  height: 50,
-                  padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
-                  child: ElevatedButton(
-                    style: ButtonStyle(
-                        backgroundColor: MaterialStateProperty.all(botaoCor)
-                    ),
-                    child: const Text('Salvar'),
-                    onPressed: () {
-                      Cadastrar(codeController.text, userController.text, passwordController.text);
-                      codeController.clear();
-                      userController.clear();
-                      passwordController.clear();
-                    }, //onPressed
-                  ),
+              ),
+            ),
+            //Inserir saldo
+            Container(
+              //Alterar para baixar lista de sugestões
+              padding: const EdgeInsets.all(10),
+              child: TextField(
+                controller: saldoController,
+                decoration: const InputDecoration(
+                  border: OutlineInputBorder(),
+                  labelText: "Saldo",
                 ),
+              ),
+            ),
 
-              ] // Children
+            //Botão de Salvar
+            Container(
+              height: 50,
+              padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
+              child: ElevatedButton(
+                style: ButtonStyle(
+                    backgroundColor: MaterialStateProperty.all(botaoCor)),
+                child: const Text('Salvar'),
+                onPressed: () {
+                  Cadastrar(codeController.text, userController.text,
+                      passwordController.text, saldoController.text);
+                  codeController.clear();
+                  userController.clear();
+                  passwordController.clear();
+                  saldoController.clear();
+                }, //onPressed
+              ),
+            ),
+          ] // Children
 
-          ),
+              ),
         ),
-
       ),
     );
   }
-
 }
 
-void Cadastrar(code, nome, senha){
-  if(code != null && code != "") {
-    FirebaseFirestore.instance.collection('usuarios').doc(code).set(
-        {'Nome': nome, 'Senha': senha, 'Code' : code});
+void Cadastrar(code, nome, senha, saldo) {
+  if (saldo == null) {
+    saldo = 0;
+  }
+  if (code != null && code != "") {
+    FirebaseFirestore.instance
+        .collection('usuarios')
+        .doc(code)
+        .set({'Nome': nome, 'Senha': senha, 'Code': code, 'Saldo': saldo});
   }
 }
-

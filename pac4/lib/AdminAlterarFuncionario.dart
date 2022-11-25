@@ -16,6 +16,7 @@ class AdminAlterarFuncionarioInstance extends State<AdminAlterarFuncionario> {
   final varNumero = TextEditingController();
   final varNome = TextEditingController();
   final varSenha = TextEditingController();
+  final varSaldo = TextEditingController();
 
   //aplicar coisas do banco aqui
   @override
@@ -76,6 +77,18 @@ class AdminAlterarFuncionarioInstance extends State<AdminAlterarFuncionario> {
                 ),
               ),
             ),
+            //Inserir saldo
+            Container(
+              padding: EdgeInsets.all(10),
+              child: TextField(
+                controller: varSaldo,
+                decoration: InputDecoration(
+                  border: OutlineInputBorder(),
+                  labelText: "Saldo",
+                  hintText: fillSaldo,
+                ),
+              ),
+            ),
 
             //Botão de Salvar
             Container(
@@ -88,7 +101,8 @@ class AdminAlterarFuncionarioInstance extends State<AdminAlterarFuncionario> {
                 onPressed: () {
                   fillNome = varNome.text;
                   fillSenha = varSenha.text;
-                  Cadastrar(fillNumber, fillNome, fillSenha);
+                  fillSaldo = varSaldo.text;
+                  Cadastrar(fillNumber, fillNome, fillSenha, fillSaldo);
                 }, //onPressed
               ),
             ),

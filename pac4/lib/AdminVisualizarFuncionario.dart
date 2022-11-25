@@ -7,6 +7,7 @@ import 'AdminPage.dart';
 var fillNumber = '';
 var fillNome = '';
 var fillSenha = '';
+var fillSaldo = '';
 final fireController = TextEditingController();
 
 class AdminVisualizarFuncionario extends StatefulWidget {
@@ -100,6 +101,7 @@ void Pesquisa(context, code) {
           print("Sucesso parceiro");
           fillNome = doc["Nome"];
           fillSenha = doc["Senha"];
+          fillSaldo = doc["Saldo"];
           Navigator.push(
               context,
               MaterialPageRoute(

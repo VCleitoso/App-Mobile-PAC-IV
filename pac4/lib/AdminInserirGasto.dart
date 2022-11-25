@@ -2,20 +2,26 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'main.dart';
 
-class AdminInserirGasto extends StatefulWidget{
+class AdminInserirGasto extends StatefulWidget {
   const AdminInserirGasto({Key? key}) : super(key: key);
 
   @override
   State<AdminInserirGasto> createState() => AdminInserirGastoInstance();
 }
 
-class AdminInserirGastoInstance extends State<AdminInserirGasto>{
+class AdminInserirGastoInstance extends State<AdminInserirGasto> {
   var restaurante = "Restaurante";
+
   final userController = TextEditingController();
   final costController = TextEditingController();
   final restaurantController = TextEditingController();
   final dropValue = ValueNotifier('');
-  final dropOpcoes = ['Restaurante bar do zé','Marmita do pele','Aqui é top marmitex','Marmitaria da vovô'];
+  final dropOpcoes = [
+    'Restaurante bar do zé',
+    'Marmita do pele',
+    'Aqui é top marmitex',
+    'Marmitaria da vovô'
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +29,10 @@ class AdminInserirGastoInstance extends State<AdminInserirGasto>{
       backgroundColor: fundoCor,
       appBar: AppBar(
         centerTitle: false,
-        title: const Text("MyMeal", style: TextStyle(color: textoCor,fontSize: 20),),
+        title: const Text(
+          "MyMeal",
+          style: TextStyle(color: textoCor, fontSize: 20),
+        ),
         backgroundColor: appbarCor,
       ),
       body: Container(
@@ -33,9 +42,7 @@ class AdminInserirGastoInstance extends State<AdminInserirGasto>{
         child: Padding(
           padding: const EdgeInsets.only(top: 10),
           child: ListView(
-
             children: [
-
               //TÍTULO GRANDÃO
               Container(
                   alignment: Alignment.center,
@@ -47,9 +54,7 @@ class AdminInserirGastoInstance extends State<AdminInserirGasto>{
                       fontWeight: FontWeight.w500,
                       fontSize: 30,
                     ),
-                  )
-              ),
-
+                  )),
 
               //Inserir Número do Funcionário
               Container(
@@ -94,33 +99,33 @@ class AdminInserirGastoInstance extends State<AdminInserirGasto>{
               //Campo multi seleção restaurante
               Container(
                 padding: const EdgeInsets.all(10),
-                  child: ValueListenableBuilder(
-                   valueListenable:dropValue,
-                      builder: (BuildContext context,String value,_) {
+                child: ValueListenableBuilder(
+                    valueListenable: dropValue,
+                    builder: (BuildContext context, String value, _) {
                       return SizedBox(
                         width: 280,
                         child: DropdownButtonFormField<String>(
                           isExpanded: true,
-                          icon:  const Icon(Icons.restaurant),
+                          icon: const Icon(Icons.restaurant),
                           hint: const Text('Escolha o restaurante'),
-                          decoration:InputDecoration(
-                            //label: const Text('Restaurante'),
-                            border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(6),
-                            )
-                          ),
+                          decoration: InputDecoration(
+                              //label: const Text('Restaurante'),
+                              border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(6),
+                          )),
                           value: (value.isEmpty) ? null : value,
-                          onChanged: (escolha) => dropValue.value = escolha.toString(),
+                          onChanged: (escolha) =>
+                              dropValue.value = escolha.toString(),
                           items: dropOpcoes
                               .map((op) => DropdownMenuItem(
-                              value: op,
-                              child: Text(op),
-                          ))
+                                    value: op,
+                                    child: Text(op),
+                                  ))
                               .toList(),
                         ),
                       );
-                     }),
-                  ),
+                    }),
+              ),
 
               //Botão de Salvar
               Container(
@@ -128,36 +133,63 @@ class AdminInserirGastoInstance extends State<AdminInserirGasto>{
                 padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
                 child: ElevatedButton(
                   style: ButtonStyle(
-                      backgroundColor: MaterialStateProperty.all(botaoCor)
-                  ),
+                      backgroundColor: MaterialStateProperty.all(botaoCor)),
                   child: const Text('Salvar'),
                   onPressed: () {
-                    adicionarGasto(userController.text,costController.text, restaurantController.text);
+                    adicionarGasto(userController.text, costController.text,
+                        restaurantController.text);
+                    userController.clear();
+                    costController.clear();
+                    restaurantController.clear();
                   }, //onPressed
                 ),
               ),
-
             ], //Children
-
           ),
         ),
-
       ),
     );
   }
 
-  adicionarGasto(code, gasto, restaurante){
-
-    if(code != null && code != "") {
-      FirebaseFirestore.instance.collection('usuarios').doc(code).collection('gastos').doc().set(
-          {'Custo' : gasto, 'Restaurante' : restaurante, 'Data' : DateTime.now().toString()});
+  adicionarGasto(code, gasto, restaurante) {
+    if (code != null && code != "") {
+      FirebaseFirestore.instance
+          .collection('usuarios')
+          .doc(code)
+          .collection('gastos')
+          .doc()
+          .set({
+        'Custo': gasto,
+        'Restaurante': restaurante,
+        'Data': DateTime.now().toString()
+      });
     }
-
-    //A fazer: Pop Up para informar usuário do sucesso ou falha do salvamento.
-
-
-    userController.clear();
-    costController.clear();
-    restaurantController.clear();
+    subtrair(userController.text, gasto);
   }
+
+  void subtrair(code, String gasto) {
+    double b = 0;
+    String a = '0';
+    FirebaseFirestore.instance
+        .collection('usuarios')
+        .get()
+        .then((QuerySnapshot querySnapshot) {
+      querySnapshot.docs.forEach((doc) {
+        if (doc["Code"] == code) {
+          a = doc["Saldo"];
+          b = double.parse(a);
+          b -= double.parse(gasto);
+          a = b.toString();
+          FirebaseFirestore.instance
+              .collection('usuarios')
+              .doc(code)
+              .update({'Saldo': a});
+        }
+        ;
+      });
+    });
+  }
+
+  //A fazer: Pop Up para informar usuário do sucesso ou falha do salvamento.
+
 }
