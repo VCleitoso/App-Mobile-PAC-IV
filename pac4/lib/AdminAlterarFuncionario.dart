@@ -131,5 +131,7 @@ class AdminAlterarFuncionarioInstance extends State<AdminAlterarFuncionario> {
 void remover(code) {
   if (code != null && code != "") {
     FirebaseFirestore.instance.collection('usuarios').doc(code).delete();
+    print("Sucesso na funçao Remover");
   }
+
 }

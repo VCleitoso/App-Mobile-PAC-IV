@@ -135,5 +135,6 @@ void Cadastrar(code, nome, senha, saldo) {
         .collection('usuarios')
         .doc(code)
         .set({'Nome': nome, 'Senha': senha, 'Code': code, 'Saldo': saldo});
+        print("Sucesso na funçao Cadastrar");
   }
 }

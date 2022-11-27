@@ -162,8 +162,10 @@ class AdminInserirGastoInstance extends State<AdminInserirGasto> {
         'Custo': gasto,
         'Restaurante': restaurante,
         'Data': DateTime.now().toString()
+        print("Sucesso na funçao adicionarGasto");
       });
     }
+    
     subtrair(userController.text, gasto);
   }
 
@@ -184,10 +186,12 @@ class AdminInserirGastoInstance extends State<AdminInserirGasto> {
               .collection('usuarios')
               .doc(code)
               .update({'Saldo': a});
+              print("Sucesso na funçao subtrair");
         }
         ;
       });
     });
+    
   }
 
   //A fazer: Pop Up para informar usuário do sucesso ou falha do salvamento.

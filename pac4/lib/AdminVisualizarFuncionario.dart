@@ -102,6 +102,7 @@ void Pesquisa(context, code) {
           fillNome = doc["Nome"];
           fillSenha = doc["Senha"];
           fillSaldo = doc["Saldo"];
+          print("Sucesso na funçao Pesquisa");
           Navigator.push(
               context,
               MaterialPageRoute(
@@ -111,4 +112,5 @@ void Pesquisa(context, code) {
       });
     });
   }
+  
 }

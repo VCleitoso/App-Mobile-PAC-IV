@@ -233,7 +233,9 @@ class LoginInstance extends State<Login> {
       Timer(const Duration(milliseconds: 500), () {
         Navigator.pop(context);
       });
+      print("Sucesso na funçao TheFunny");
     }
+    
   }
 }
 
@@ -255,5 +257,7 @@ void Entrar(context, code, senha) {
         }
       });
     });
+    print("Sucesso na funçao Entrar");
   }
+  
 }
