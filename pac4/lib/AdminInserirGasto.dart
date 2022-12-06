@@ -153,6 +153,7 @@ class AdminInserirGastoInstance extends State<AdminInserirGasto> {
 
   adicionarGasto(code, gasto, restaurante) {
     if (code != null && code != "") {
+      print("Sucesso na funçao adicionarGasto");
       FirebaseFirestore.instance
           .collection('usuarios')
           .doc(code)
@@ -164,7 +165,7 @@ class AdminInserirGastoInstance extends State<AdminInserirGasto> {
         'Data': DateTime.now().toString()
       });
     }
-    
+
     subtrair(userController.text, gasto);
   }
 
@@ -185,12 +186,11 @@ class AdminInserirGastoInstance extends State<AdminInserirGasto> {
               .collection('usuarios')
               .doc(code)
               .update({'Saldo': a});
-              print("Sucesso na funçao subtrair");
+          print("Sucesso na funçao subtrair");
         }
         ;
       });
     });
-    
   }
 
   //A fazer: Pop Up para informar usuário do sucesso ou falha do salvamento.

@@ -221,7 +221,6 @@ class LoginInstance extends State<Login> {
       });
       print("Sucesso na funçao TheFunny");
     }
-    
   }
 }
 
@@ -229,6 +228,7 @@ void Entrar(context, code, senha) {
   if (code == "admin" && senha == "admin") {
     Navigator.push(
         context, MaterialPageRoute(builder: (context) => const AdminPage()));
+    print("Sucesso na funçao Entrar");
   } else {
     FirebaseFirestore.instance
         .collection('usuarios')
@@ -240,10 +240,9 @@ void Entrar(context, code, senha) {
           Codigo = doc["Code"];
           Navigator.push(
               context, MaterialPageRoute(builder: (context) => UserPage()));
+          print("Sucesso na funçao Entrar");
         }
       });
     });
-    print("Sucesso na funçao Entrar");
   }
-  
 }
