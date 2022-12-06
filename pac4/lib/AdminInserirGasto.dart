@@ -162,7 +162,6 @@ class AdminInserirGastoInstance extends State<AdminInserirGasto> {
         'Custo': gasto,
         'Restaurante': restaurante,
         'Data': DateTime.now().toString()
-        print("Sucesso na funçao adicionarGasto");
       });
     }
     

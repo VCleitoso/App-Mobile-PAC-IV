@@ -36,45 +36,25 @@ class LoginInstance extends State<Login> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: fundoCor,
-      appBar: AppBar(
-        centerTitle: false,
-        title: const Text(
-          "MyMeal",
-          style: TextStyle(color: textoCor, fontSize: 20),
-        ),
-        backgroundColor: appbarCor,
-        leading: Padding(
-          padding: const EdgeInsets.fromLTRB(0, 0, 0, 0),
-          child: TextButton(
-              onPressed: () {
-                TheFunny();
-              },
-              child: Image.asset(
-                'logo_branco_sem_preto.png',
-                color: textoCor,
-              )),
-        ),
-      ),
       body: Container(
-        decoration: const BoxDecoration(
-          image: imagemFundo,
-        ),
-        child: Padding(
+        child:
+        Padding(
           padding: const EdgeInsets.all(10),
           child: ListView(
             children: [
-              //TÍTULO GRANDÃO
               Container(
-                  padding: EdgeInsets.only(top: 40, bottom: 40),
                   alignment: Alignment.center,
-                  child: const Text(
-                    "Login",
-                    style: TextStyle(
-                      color: textoCor,
-                      fontWeight: FontWeight.w500,
-                      fontSize: 30,
-                    ),
-                  )),
+                  padding: EdgeInsets.only(top:20),
+                  child:
+                  Text(
+                    'MyMeal',
+                    style: TextStyle(fontSize: 26, fontWeight: FontWeight.bold),
+                  )
+              ),
+              Container(
+                padding: EdgeInsets.only(top: 15, bottom: 40),
+                child:Image.asset('logo_branco_sem_preto.png', color: textoCor, width:120,height:80, ),
+              ),
 
               Expanded(
                 flex: 20,
@@ -166,15 +146,19 @@ class LoginInstance extends State<Login> {
                               //height: 50,
                               //padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
                               //child:
-                              ElevatedButton(
-                                style: ButtonStyle(
-                                    backgroundColor:
-                                        MaterialStateProperty.all(botaoCor)),
-                                child: const Text(
-                                  'Login',
-                                  style:
-                                      TextStyle(color: textoCor, fontSize: 15),
-                                ),
+                      Container(
+                        padding: EdgeInsets.only(top:20),
+                        height:60,
+                        width: 200,
+                        child:
+                        ElevatedButton(
+                          style: ButtonStyle(
+                              backgroundColor: MaterialStateProperty.all(botaoCor)
+                          ),
+                          //child: const Text('Login', style: TextStyle(color: textoCor,fontSize: 15),),
+                          child: const Text('Login',
+                            style: TextStyle(color: textoCor,fontSize: 18, ),
+                          ),
                                 onPressed: () {
                                   Entrar(context, userController.text,
                                       passwordController.text);
@@ -182,38 +166,40 @@ class LoginInstance extends State<Login> {
                                   passwordController.clear();
                                 }, //onPressed
                               ),
-
-                              Row(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  const Text(
-                                    "Não possui conta?",
-                                    style: TextStyle(
-                                        color: textoCor, fontSize: 15),
-                                  ),
-                                  TextButton(
-                                    child: const Text(
-                                      "Contate seu administrador",
-                                      style: TextStyle(fontSize: 15),
-                                    ),
-                                    onPressed: () {
-                                      Navigator.push(
-                                          context,
-                                          MaterialPageRoute(
-                                              builder: (context) =>
-                                                  HelpPage()));
-                                    },
-                                  ),
-                                ],
-                              )
-                            ],
                           ),
-                        )),
+
+                        Container(
+                          alignment: Alignment.center,
+                          padding: EdgeInsets.only(top:30),
+                          child:
+                          Text(
+                            "Não possui conta?",
+                            style: TextStyle(fontSize: 15),),
+                        ),
+
+                        Container(
+                          child: TextButton(
+                            child: Text(
+                              "Contate seu administrador",
+                              style: TextStyle(fontSize: 15),
+                            ),
+                            onPressed: (){
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(builder: (context) => HelpPage())
+                              );
+                            },
+                          ),
+                        ),
+                    ],
+                  ),
+                ),
               ),
+            ),
             ],
           ),
-        ),
-      ),
+        )
+      )
     );
   }
 
