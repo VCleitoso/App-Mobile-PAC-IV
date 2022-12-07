@@ -108,6 +108,7 @@ class AdminCadastrarFuncionarioInstance
                     backgroundColor: MaterialStateProperty.all(botaoCor)),
                 child: const Text('Salvar'),
                 onPressed: () {
+                  PopUpandLeave(context, "Salvo com sucesso.");
                   Cadastrar(codeController.text, userController.text,
                       passwordController.text, saldoController.text);
                   codeController.clear();

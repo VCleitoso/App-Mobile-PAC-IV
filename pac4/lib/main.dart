@@ -35,3 +35,31 @@ Future<void> main() async {
     home: Login(),
   ));
 }
+
+void PopUp(context, texto){
+  showDialog(context: context,
+    builder: (context) => AlertDialog(
+      title: Text(texto),
+      actions: [
+        TextButton(
+          child: Text('OK'),
+          onPressed: () => Navigator.pop(context),
+        )
+      ],
+    ),
+  );
+}
+
+void PopUpandLeave(context, texto){
+  showDialog(context: context,
+    builder: (context) => AlertDialog(
+      title: Text(texto),
+      actions: [
+        TextButton(
+          child: Text('OK'),
+          onPressed: () { Navigator.pop(context); Navigator.pop(context);},
+        )
+      ],
+    ),
+  );
+}

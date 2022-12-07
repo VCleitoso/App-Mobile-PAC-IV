@@ -100,17 +100,7 @@ class AdminAlterarFuncionarioInstance extends State<AdminAlterarFuncionario> {
                     backgroundColor: MaterialStateProperty.all(botaoCor)),
                 child: Text('Salvar'),
                 onPressed: () {
-                  showDialog(context: context,
-                    builder: (context) => AlertDialog(
-                      title: Text('TESTE'),
-                      actions: [
-                        TextButton(
-                          child: Text('OK'),
-                          onPressed: () => Navigator.pop(context),
-                        )
-                      ],
-                    ),
-                  );
+                  PopUp(context, "Salvo com sucesso.");
                   if (varNome.text == '' &&
                       varSenha.text != '' &&
                       varSaldo.text != '') {
@@ -179,17 +169,7 @@ class AdminAlterarFuncionarioInstance extends State<AdminAlterarFuncionario> {
                     backgroundColor: MaterialStateProperty.all(botaoCor)),
                 child: Text('Remover'),
                 onPressed: () {
-                  showDialog(context: context,
-                      builder: (context) => AlertDialog(
-                        title: Text('TESTE'),
-                        actions: [
-                          TextButton(
-                            child: Text('OK'),
-                            onPressed: () => Navigator.pop(context),
-                          )
-                        ],
-                      ),
-                  );
+                  PopUpandLeave(context, "Removido com sucesso.");
                   remover(fillNumber);
                 }, //onPressed
               ),
