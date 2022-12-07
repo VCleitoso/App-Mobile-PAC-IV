@@ -30,7 +30,7 @@ Future<void> main() async {
     debugShowCheckedModeBanner: false,
     title: "Trabalho PAC IV",
     theme: ThemeData(
-      brightness: Brightness.dark,
+      brightness: Brightness.light,
     ),
     home: Login(),
   ));
