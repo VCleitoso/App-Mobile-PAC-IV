@@ -110,7 +110,7 @@ class LoginInstance extends State<Login> {
                               filled: true,
                               fillColor: Color(0xFFe7edeb),
                               hintStyle: TextStyle(color: Colors.grey),
-                              hoverColor: Colors.blueGrey,
+                              hoverColor: Colors.black12,
                               hintText: "Senha",
                               prefixIcon: Icon(
                                 Icons.password,
