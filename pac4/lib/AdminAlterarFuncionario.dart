@@ -99,10 +99,61 @@ class AdminAlterarFuncionarioInstance extends State<AdminAlterarFuncionario> {
                     backgroundColor: MaterialStateProperty.all(botaoCor)),
                 child: Text('Salvar'),
                 onPressed: () {
-                  fillNome = varNome.text;
-                  fillSenha = varSenha.text;
-                  fillSaldo = varSaldo.text;
-                  Cadastrar(fillNumber, fillNome, fillSenha, fillSaldo);
+                  if (varNome.text == '' &&
+                      varSenha.text != '' &&
+                      varSaldo.text != '') {
+                    //Nome nulo, resto normal
+                    fillSenha = varSenha.text;
+                    fillSaldo = varSaldo.text;
+                    Cadastrar(fillNumber, fillNome, fillSenha, fillSaldo);
+                  } else if (varNome.text == '' &&
+                      varSenha.text == '' &&
+                      varSaldo.text == '') {
+                    //Tudo nulo, nada altera
+                    Cadastrar(fillNumber, fillNome, fillSenha, fillSaldo);
+                  } else if (varNome.text == '' &&
+                      varSenha.text != '' &&
+                      varSaldo.text == '') {
+                    //Nome e saldo nulo, alterar senha
+                    fillSenha = varSenha.text;
+                    Cadastrar(fillNumber, fillNome, fillSenha, fillSaldo);
+                  } else if (varNome.text == '' &&
+                      varSenha.text != '' &&
+                      varSaldo.text != '') {
+                    //Nome nulo, alterar senha e saldo
+                    fillSaldo = varSaldo.text;
+                    fillSenha = varSenha.text;
+                    Cadastrar(fillNumber, fillNome, fillSenha, fillSaldo);
+                  } else if (varNome.text != '' &&
+                      varSenha.text != '' &&
+                      varSaldo.text != '') {
+                    //Nada nulo, altera tudo.
+                    fillNome = varNome.text;
+                    fillSenha = varSenha.text;
+                    fillSaldo = varSaldo.text;
+                    Cadastrar(fillNumber, fillNome, fillSenha, fillSaldo);
+                  } else if (varNome.text == '' &&
+                      varSenha.text == '' &&
+                      varSaldo.text != '') {
+                    //Nome e senha nulo, saldo Normal
+                    fillNome = fillNome;
+                    fillSenha = fillSenha;
+                    fillSaldo = varSaldo.text;
+                    Cadastrar(fillNumber, fillNome, fillSenha, fillSaldo);
+                  } else if (varNome.text != '' &&
+                      varSenha.text == '' &&
+                      varSaldo.text == '') {
+                    //Altera nome
+                    fillNome = varNome.text;
+                    Cadastrar(fillNumber, fillNome, fillSenha, fillSaldo);
+                  } else if (varNome.text != '' &&
+                      varSenha.text != '' &&
+                      varSaldo.text == '') {
+                    //Altera nome e senha
+                    fillNome = varNome.text;
+                    fillSenha = varSenha.text;
+                    Cadastrar(fillNumber, fillNome, fillSenha, fillSaldo);
+                  }
                 }, //onPressed
               ),
             ),
@@ -133,5 +184,4 @@ void remover(code) {
     FirebaseFirestore.instance.collection('usuarios').doc(code).delete();
     print("Sucesso na funçao Remover");
   }
-
 }
