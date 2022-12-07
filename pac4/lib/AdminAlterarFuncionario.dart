@@ -92,13 +92,25 @@ class AdminAlterarFuncionarioInstance extends State<AdminAlterarFuncionario> {
 
             //Botão de Salvar
             Container(
-              height: 50,
-              padding: EdgeInsets.fromLTRB(10, 0, 10, 0),
+              padding: EdgeInsets.only(top:15),
+              height: 60,
+              width: 200,
               child: ElevatedButton(
                 style: ButtonStyle(
                     backgroundColor: MaterialStateProperty.all(botaoCor)),
                 child: Text('Salvar'),
                 onPressed: () {
+                  showDialog(context: context,
+                    builder: (context) => AlertDialog(
+                      title: Text('TESTE'),
+                      actions: [
+                        TextButton(
+                          child: Text('OK'),
+                          onPressed: () => Navigator.pop(context),
+                        )
+                      ],
+                    ),
+                  );
                   if (varNome.text == '' &&
                       varSenha.text != '' &&
                       varSaldo.text != '') {
@@ -159,13 +171,25 @@ class AdminAlterarFuncionarioInstance extends State<AdminAlterarFuncionario> {
             ),
             //Botão de Remover
             Container(
-              height: 50,
-              padding: EdgeInsets.fromLTRB(10, 0, 10, 0),
+              padding: EdgeInsets.only(top:25),
+              height: 60,
+              width: 200,
               child: ElevatedButton(
                 style: ButtonStyle(
                     backgroundColor: MaterialStateProperty.all(botaoCor)),
                 child: Text('Remover'),
                 onPressed: () {
+                  showDialog(context: context,
+                      builder: (context) => AlertDialog(
+                        title: Text('TESTE'),
+                        actions: [
+                          TextButton(
+                            child: Text('OK'),
+                            onPressed: () => Navigator.pop(context),
+                          )
+                        ],
+                      ),
+                  );
                   remover(fillNumber);
                 }, //onPressed
               ),
