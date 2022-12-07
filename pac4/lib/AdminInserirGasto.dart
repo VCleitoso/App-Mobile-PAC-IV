@@ -82,7 +82,7 @@ class AdminInserirGastoInstance extends State<AdminInserirGasto> {
                 ),
               ),
 
-              /*//Inserir Restaurante
+              //Inserir Restaurante
               Container(
                 //Alterar para baixar lista de sugestões
                 padding: const EdgeInsets.all(10),
@@ -94,10 +94,10 @@ class AdminInserirGastoInstance extends State<AdminInserirGasto> {
                     hintText: "Ex: Duas Rodas",
                   ),
                 ),
-              ),*/
+              ),
 
               //Campo multi seleção restaurante
-              Container(
+              /*Container(
                 padding: const EdgeInsets.all(10),
                 child: ValueListenableBuilder(
                     valueListenable: dropValue,
@@ -125,7 +125,7 @@ class AdminInserirGastoInstance extends State<AdminInserirGasto> {
                         ),
                       );
                     }),
-              ),
+              ),*/
 
               //Botão de Salvar
               Container(
