@@ -9,6 +9,7 @@ import 'main.dart';
 
 var Nome = "nome";
 var Codigo = "codigo";
+var Saldo = "";
 
 class Login extends StatefulWidget {
   const Login({Key? key}) : super(key: key);
@@ -35,146 +36,149 @@ class LoginInstance extends State<Login> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: fundoCor,
-      body: Container(
-        child:
-        Padding(
+        backgroundColor: fundoCor,
+        body: Container(
+            child: Padding(
           padding: const EdgeInsets.all(10),
           child: ListView(
             children: [
               Container(
                   alignment: Alignment.center,
-                  padding: EdgeInsets.only(top:20),
-                  child:
-                  Text(
+                  padding: EdgeInsets.only(top: 20),
+                  child: Text(
                     'MyMeal',
                     style: TextStyle(fontSize: 26, fontWeight: FontWeight.bold),
-                  )
-              ),
+                  )),
               Container(
                 padding: EdgeInsets.only(top: 15, bottom: 40),
-                child:Image.asset('logo_branco_sem_preto.png', color: textoCor, width:120,height:80, ),
+                child: Image.asset(
+                  'logo_branco_sem_preto.png',
+                  color: textoCor,
+                  width: 120,
+                  height: 80,
+                ),
               ),
-
               Expanded(
                 flex: 20,
                 child:
                     //ENTRADA USUÁRIO
                     Container(
-                        padding: EdgeInsets.only(top: 100, bottom: 300),
-                        width: double.infinity,
-                        decoration: BoxDecoration(
-                            color: Colors.white,
-                            borderRadius: BorderRadius.only(
-                              topLeft: Radius.circular(40),
-                              topRight: Radius.circular(40),
-                            )),
-                        child: Padding(
-                          padding: const EdgeInsets.all(26),
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            children: [
-                              Padding(
-                                padding: EdgeInsets.only(bottom: 20),
-                                child: TextField(
-                                  style: TextStyle(color: Colors.black),
-                                  controller: userController,
-                                  decoration: InputDecoration(
-                                      border: OutlineInputBorder(
-                                        borderRadius:
-                                            BorderRadius.circular(8.0),
-                                      ),
-                                      filled: true,
-                                      fillColor: Color(0xFFe7edeb),
-                                      hintStyle: TextStyle(color: Colors.grey),
-                                      hoverColor: Colors.black12,
-                                      hintText: "Codigo crachá",
-                                      prefixIcon: Icon(
-                                        Icons.badge,
-                                        color: Colors.grey,
-                                      )),
+                  padding: EdgeInsets.only(top: 100, bottom: 300),
+                  width: double.infinity,
+                  decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.only(
+                        topLeft: Radius.circular(40),
+                        topRight: Radius.circular(40),
+                      )),
+                  child: Padding(
+                    padding: const EdgeInsets.all(26),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Padding(
+                          padding: EdgeInsets.only(bottom: 20),
+                          child: TextField(
+                            style: TextStyle(color: Colors.black),
+                            controller: userController,
+                            decoration: InputDecoration(
+                                border: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(8.0),
                                 ),
-                              ),
-
-                              //ENTRADA SENHA
-                              TextField(
-                                style: TextStyle(color: Colors.black),
-                                obscureText: obscureText,
-                                controller: passwordController,
-                                decoration: InputDecoration(
-                                    border: OutlineInputBorder(
-                                      borderRadius: BorderRadius.circular(8.0),
-                                    ),
-                                    filled: true,
-                                    fillColor: Color(0xFFe7edeb),
-                                    hintStyle: TextStyle(color: Colors.grey),
-                                    hoverColor: Colors.blueGrey,
-                                    hintText: "Senha",
-                                    prefixIcon: Icon(
-                                      Icons.password,
-                                      color: Colors.grey,
-                                    ),
-                                    suffixIcon: IconButton(
-                                      onPressed: () {
-                                        if (obscureText == true) {
-                                          setState(() {
-                                            obscureText = false;
-                                            iconPassword = Icons.visibility_off;
-                                          });
-                                        } else {
-                                          setState(() {
-                                            obscureText = true;
-                                            iconPassword = Icons.visibility;
-                                          });
-                                        }
-                                      },
-                                      icon: Icon(iconPassword),
-                                    )),
-                              ),
-
-                              //BOTÃO DE ESQUECI A SENHA
-                              TextButton(
-                                  onPressed: () {
-                                    Navigator.push(
-                                        context,
-                                        MaterialPageRoute(
-                                            builder: (context) => HelpPage()));
-                                  },
-                                  child: const Text("Esqueci a senha.")),
-
-                              //height: 50,
-                              //padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
-                              //child:
-                      Container(
-                        padding: EdgeInsets.only(top:20),
-                        height:60,
-                        width: 200,
-                        child:
-                        ElevatedButton(
-                          style: ButtonStyle(
-                              backgroundColor: MaterialStateProperty.all(botaoCor)
+                                filled: true,
+                                fillColor: Color(0xFFe7edeb),
+                                hintStyle: TextStyle(color: Colors.grey),
+                                hoverColor: Colors.black12,
+                                hintText: "Codigo crachá",
+                                prefixIcon: Icon(
+                                  Icons.badge,
+                                  color: Colors.grey,
+                                )),
                           ),
-                          //child: const Text('Login', style: TextStyle(color: textoCor,fontSize: 15),),
-                          child: const Text('Login',
-                            style: TextStyle(color: textoCor,fontSize: 18, ),
-                          ),
+                        ),
+
+                        //ENTRADA SENHA
+                        TextField(
+                          style: TextStyle(color: Colors.black),
+                          obscureText: obscureText,
+                          controller: passwordController,
+                          decoration: InputDecoration(
+                              border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(8.0),
+                              ),
+                              filled: true,
+                              fillColor: Color(0xFFe7edeb),
+                              hintStyle: TextStyle(color: Colors.grey),
+                              hoverColor: Colors.blueGrey,
+                              hintText: "Senha",
+                              prefixIcon: Icon(
+                                Icons.password,
+                                color: Colors.grey,
+                              ),
+                              suffixIcon: IconButton(
                                 onPressed: () {
-                                  Entrar(context, userController.text,
-                                      passwordController.text);
-                                  userController.clear();
-                                  passwordController.clear();
-                                }, //onPressed
+                                  if (obscureText == true) {
+                                    setState(() {
+                                      obscureText = false;
+                                      iconPassword = Icons.visibility_off;
+                                    });
+                                  } else {
+                                    setState(() {
+                                      obscureText = true;
+                                      iconPassword = Icons.visibility;
+                                    });
+                                  }
+                                },
+                                icon: Icon(iconPassword),
+                              )),
+                        ),
+
+                        //BOTÃO DE ESQUECI A SENHA
+                        TextButton(
+                            onPressed: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => HelpPage()));
+                            },
+                            child: const Text("Esqueci a senha.")),
+
+                        //height: 50,
+                        //padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
+                        //child:
+                        Container(
+                          padding: EdgeInsets.only(top: 20),
+                          height: 60,
+                          width: 200,
+                          child: ElevatedButton(
+                            style: ButtonStyle(
+                                backgroundColor:
+                                    MaterialStateProperty.all(botaoCor)),
+                            //child: const Text('Login', style: TextStyle(color: textoCor,fontSize: 15),),
+                            child: const Text(
+                              'Login',
+                              style: TextStyle(
+                                color: textoCor,
+                                fontSize: 18,
                               ),
+                            ),
+                            onPressed: () {
+                              Entrar(context, userController.text,
+                                  passwordController.text);
+                              userController.clear();
+                              passwordController.clear();
+                            }, //onPressed
                           ),
+                        ),
 
                         Container(
                           alignment: Alignment.center,
-                          padding: EdgeInsets.only(top:30),
-                          child:
-                          Text(
+                          padding: EdgeInsets.only(top: 30),
+                          child: Text(
                             "Não possui conta?",
-                            style: TextStyle(fontSize: 15),),
+                            style: TextStyle(fontSize: 15),
+                          ),
                         ),
 
                         Container(
@@ -183,24 +187,22 @@ class LoginInstance extends State<Login> {
                               "Contate seu administrador",
                               style: TextStyle(fontSize: 15),
                             ),
-                            onPressed: (){
+                            onPressed: () {
                               Navigator.push(
                                   context,
-                                  MaterialPageRoute(builder: (context) => HelpPage())
-                              );
+                                  MaterialPageRoute(
+                                      builder: (context) => HelpPage()));
                             },
                           ),
                         ),
-                    ],
+                      ],
+                    ),
                   ),
                 ),
               ),
-            ),
             ],
           ),
-        )
-      )
-    );
+        )));
   }
 
   void TheFunny() {
@@ -238,6 +240,7 @@ void Entrar(context, code, senha) {
         if (doc["Code"] == code && doc["Senha"] == senha) {
           Nome = doc["Nome"];
           Codigo = doc["Code"];
+          Saldo = doc["Saldo"];
           Navigator.push(
               context, MaterialPageRoute(builder: (context) => UserPage()));
           print("Sucesso na funçao Entrar");
