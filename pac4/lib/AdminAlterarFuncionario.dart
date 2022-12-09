@@ -92,7 +92,7 @@ class AdminAlterarFuncionarioInstance extends State<AdminAlterarFuncionario> {
 
             //Botão de Salvar
             Container(
-              padding: EdgeInsets.only(top:15),
+              padding: EdgeInsets.only(top: 15),
               height: 60,
               width: 200,
               child: ElevatedButton(
@@ -161,7 +161,7 @@ class AdminAlterarFuncionarioInstance extends State<AdminAlterarFuncionario> {
             ),
             //Botão de Remover
             Container(
-              padding: EdgeInsets.only(top:25),
+              padding: EdgeInsets.only(top: 25),
               height: 60,
               width: 200,
               child: ElevatedButton(

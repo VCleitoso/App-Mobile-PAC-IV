@@ -10,6 +10,9 @@ import 'main.dart';
 var Nome = "nome";
 var Codigo = "codigo";
 var Saldo = "";
+var restaurantes = [];
+var gastos = [];
+var datas = [];
 
 class Login extends StatefulWidget {
   const Login({Key? key}) : super(key: key);
@@ -233,6 +236,7 @@ void Entrar(context, code, senha) {
         context, MaterialPageRoute(builder: (context) => const AdminPage()));
     print("Sucesso na funçao Entrar");
   } else {
+    conseguirGastos(code);
     FirebaseFirestore.instance
         .collection('usuarios')
         .get()
@@ -243,14 +247,39 @@ void Entrar(context, code, senha) {
           Codigo = doc["Code"];
           Saldo = doc["Saldo"];
           sucesso = true;
+          /*PopUp(context, "Login Bem sucedido.");*/
+
           Navigator.push(
               context, MaterialPageRoute(builder: (context) => UserPage()));
           print("Sucesso na funçao Entrar");
         }
       });
     });
-    if(sucesso == false){
+    /*if (sucesso == false) {
       PopUp(context, "Erro nas credenciais.");
-    };
+    }*/
+    ;
   }
+}
+
+void conseguirGastos(code) {
+  gastos = [];
+  datas = [];
+  restaurantes = [];
+  FirebaseFirestore.instance
+      .collection('usuarios')
+      .doc(code)
+      .collection('gastos')
+      .get()
+      .then((QuerySnapshot querySnapshot) {
+    querySnapshot.docs.forEach((doc) {
+      restaurantes.add(doc["Restaurante"]);
+      gastos.add(doc["Custo"]);
+      datas.add(doc["Data"]);
+      print(datas);
+      print(restaurantes);
+      print(gastos);
+      getGastos(code);
+    });
+  });
 }

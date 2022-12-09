@@ -105,7 +105,7 @@ class UserPage extends StatelessWidget {
                             Column(
                               children: [
                                 Text(
-                                  listaGastos[0].data,
+                                  "$datas",
                                   style:
                                       TextStyle(color: textoCor, fontSize: 15),
                                 ),
@@ -116,7 +116,7 @@ class UserPage extends StatelessWidget {
                             Column(
                               children: [
                                 Text(
-                                  listaGastos[0].restaurante,
+                                  "$restaurantes",
                                   style:
                                       TextStyle(color: textoCor, fontSize: 15),
                                 ),
@@ -127,7 +127,7 @@ class UserPage extends StatelessWidget {
                             Column(
                               children: [
                                 Text(
-                                  listaGastos[0].custo,
+                                  "$gastos",
                                   style:
                                       TextStyle(color: textoCor, fontSize: 15),
                                 ),
