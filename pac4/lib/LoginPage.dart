@@ -232,6 +232,7 @@ class LoginInstance extends State<Login> {
 void Entrar(context, code, senha) {
   var sucesso = false;
   if (code == "admin" && senha == "admin") {
+    sucesso = true;
     Navigator.push(
         context, MaterialPageRoute(builder: (context) => const AdminPage()));
     print("Sucesso na funçao Entrar");
@@ -247,7 +248,7 @@ void Entrar(context, code, senha) {
           Codigo = doc["Code"];
           Saldo = doc["Saldo"];
           sucesso = true;
-          /*PopUp(context, "Login Bem sucedido.");*/
+          PopUp(context, "Login Bem sucedido.");
 
           Navigator.push(
               context, MaterialPageRoute(builder: (context) => UserPage()));
@@ -255,11 +256,14 @@ void Entrar(context, code, senha) {
         }
       });
     });
-    /*if (sucesso == false) {
-      PopUp(context, "Erro nas credenciais.");
-    }*/
-    ;
   }
+  Timer(const Duration(seconds: 1), () {
+    if (sucesso == false) {
+      PopUp(context, "Erro nas credenciais.");
+    };
+  });
+
+  sucesso = false;
 }
 
 void conseguirGastos(code) {

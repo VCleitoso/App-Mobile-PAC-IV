@@ -98,7 +98,7 @@ class AdminPage extends StatelessWidget{
               ),
 
               //BOTÃO DE ALTERAR LOGIN DE ADMINISTRADOR
-              Container(
+              /*Container(
                 height: 50,
                 padding: const EdgeInsets.all(10),
                 child: ElevatedButton(
@@ -113,7 +113,7 @@ class AdminPage extends StatelessWidget{
                     },
                     child: const Text("ALTERAR LOGIN DE ADMINISTRADOR", style: TextStyle(color: textoCor,fontSize: 15),)
                 ),
-              ),
+              ),*/
 
 
 
